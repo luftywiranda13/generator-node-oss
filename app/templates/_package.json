@@ -1,0 +1,58 @@
+{
+  "name": "<%= projectName %>",
+  "version": "0.0.0",
+  "description": "<%= description %>",
+  "license": "MIT",
+  "repository": "https://github.com/<%= githubUsername %>/<%= projectName %>.git",
+  "author": {
+    "name": "<%= name %>",
+    "email": "<%= email %>",
+    "url": "<%= website %>"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "precommit": "remove-lockfiles && lint-staged",<% if (esnext) { %>
+    "prebuild": "rimraf dist",
+    "build": "babel --copy-files --out-dir dist --ignore *.test.js src",<% } %>
+    "pretest": "eslint .",
+    "test": "jest"
+  },<% if (esnext) { %>
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],<% } else { %>
+  "files": [
+    "index.js"
+  ],<% } %>
+  "dependencies": {},
+  "devDependencies": {<% if (esnext) { %>
+    "babel-cli": "^6.24.1",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-preset-env": "^1.6.0",<% } %>
+    "eslint": "^4.4.1",
+    "eslint-config-bunny": "^4.1.0",
+    "husky": "^0.14.3",
+    "jest": "^20.0.4",
+    "lint-staged": "^4.0.3",
+    "prettier": "^1.5.3",
+    "remove-lockfiles": "^1.0.0"<% if (esnext) { %>,
+    "rimraf": "^2.6.1"<% } %>
+  },
+  "jest": {
+    "testEnvironment": "node"<% if (coverage) { %>,
+    "collectCoverage": true<% } %><% if (esnext) { %>,
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ]<% } %>
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --trailing-comma es5 --single-quote --write",
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "keywords": []
+}

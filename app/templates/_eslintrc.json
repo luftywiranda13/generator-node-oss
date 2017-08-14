@@ -1,0 +1,6 @@
+{
+  "extends": [
+    "bunny",
+    "bunny/recommended"
+  ]
+}
