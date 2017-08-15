@@ -77,8 +77,8 @@ describe('templating', () => {
     await pify(generator.run.bind(generator))();
 
     assert.fileContent('package.json', /"name": "test"/);
-    assert.fileContent('package.json', 'https://github.com/tester/test.git');
-    assert.fileContent('contributing.md', 'https://github.com/tester/test.git');
+    assert.fileContent('package.json', 'https://github.com/tester/test');
+    assert.fileContent('contributing.md', 'https://github.com/tester/test');
     assert.fileContent('readme.md', /# test/);
     assert.fileContent(
       'readme.md',

@@ -15,7 +15,7 @@ Thanks for being willing to contribute!
 > Tip: Keep your `master` branch pointing at the original repository and make pull requests from branches on your fork. To do this, run:
 >
 > ```
-> git remote add upstream https://github.com/luftywiranda13/generator-node-oss.git
+> git remote add upstream https://github.com/luftywiranda13/generator-node-oss
 > git fetch upstream
 > git branch --set-upstream-to=upstream/master master
 > ```
