@@ -10,7 +10,8 @@
     "url": "https://www.instagram.com/luftywiranda13"
   },
   "engines": {
-    "node": ">=4"
+    "node": ">=4",
+    "npm": ">=3"
   },
   "scripts": {
     "contributors:add": "all-contributors add",
