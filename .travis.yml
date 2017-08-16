@@ -11,4 +11,4 @@ after_success:
   - codecov
   - semantic-release pre && npm publish && semantic-release post
 branches:
-  only: master
+  except: /^v\d+\.\d+\.\d+$/

@@ -11,4 +11,4 @@ after_script:
   - npm install -g codecov
   - codecov<% } %>
 branches:
-  only: master
+  except: /^v\d+\.\d+\.\d+$/
