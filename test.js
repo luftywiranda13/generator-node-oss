@@ -70,36 +70,36 @@ it('generates files for esnext', async () => {
 describe('templating', () => {
   test('projectName', async () => {
     helpers.mockPrompt(generator, {
-      projectName: 'test',
-      githubUsername: 'tester',
+      projectName: 'foo',
+      githubUsername: 'test',
     });
 
     await pify(generator.run.bind(generator))();
 
-    assert.fileContent('package.json', /"name": "test"/);
-    assert.fileContent('package.json', 'https://github.com/tester/test');
-    assert.fileContent('contributing.md', 'https://github.com/tester/test');
-    assert.fileContent('readme.md', /# test/);
+    assert.fileContent('package.json', /"name": "foo"/);
+    assert.fileContent('package.json', 'https://github.com/test/foo');
+    assert.fileContent('contributing.md', 'https://github.com/test/foo');
+    assert.fileContent('readme.md', /# foo/);
     assert.fileContent(
       'readme.md',
-      '[![npm](https://img.shields.io/npm/v/test.svg?style=flat-square)](https://www.npmjs.com/package/test)\n[![Travis branch](https://img.shields.io/travis/tester/test/master.svg?style=flat-square)](https://travis-ci.org/tester/test)\n[![npm](https://img.shields.io/npm/dm/test.svg?style=flat-square)](https://npm-stat.com/charts.html?package=test&from=2016-04-01)'
+      '[![npm](https://img.shields.io/npm/v/foo.svg?style=flat-square)](https://www.npmjs.com/package/foo)\n[![Travis branch](https://img.shields.io/travis/test/foo/master.svg?style=flat-square)](https://travis-ci.org/test/foo)\n[![npm](https://img.shields.io/npm/dm/foo.svg?style=flat-square)](https://npm-stat.com/charts.html?package=foo&from=2016-04-01)'
     );
-    assert.fileContent('readme.md', /npm install --save test/);
-    assert.fileContent('readme.md', "const test = require('test');");
+    assert.fileContent('readme.md', /npm install --save foo/);
+    assert.fileContent('readme.md', "const foo = require('foo');");
     assert.fileContent(
       '.github/issue_template.md',
-      /test version: <!-- run `npm ls test` -->/
+      /foo version: <!-- run `npm ls foo` -->/
     );
     assert.fileContent(
       '.github/pull_request_template.md',
-      'https://github.com/tester/test/blob/master/contributing.md'
+      'https://github.com/test/foo/blob/master/contributing.md'
     );
   });
 
   test('coverage', async () => {
     helpers.mockPrompt(generator, {
       coverage: true,
-      githubUsername: 'tester',
+      githubUsername: 'test',
     });
 
     await pify(generator.run.bind(generator))();
@@ -110,7 +110,7 @@ describe('templating', () => {
     assert.fileContent('.travis.yml', /codecov/);
     assert.fileContent(
       'readme.md',
-      '[![Codecov branch](https://img.shields.io/codecov/c/github/tester/temp/master.svg?style=flat-square)](https://codecov.io/gh/tester/temp)'
+      '[![Codecov branch](https://img.shields.io/codecov/c/github/test/temp/master.svg?style=flat-square)](https://codecov.io/gh/test/temp)'
     );
   });
 
@@ -163,26 +163,26 @@ describe('templating', () => {
 
   test('name', async () => {
     helpers.mockPrompt(generator, {
-      name: 'tester',
+      name: 'foo bar',
     });
 
     await pify(generator.run.bind(generator))();
 
-    assert.fileContent('package.json', /"name": "tester"/);
-    assert.fileContent('license', /tester/);
-    assert.fileContent('readme.md', 'MIT &copy; [tester]');
+    assert.fileContent('package.json', /"name": "foo bar"/);
+    assert.fileContent('license', /foo bar/);
+    assert.fileContent('readme.md', 'MIT &copy; [foo bar]');
   });
 
   test('email', async () => {
     helpers.mockPrompt(generator, {
-      email: 'tester@bunny.com',
+      email: 'test@test.com',
     });
 
     await pify(generator.run.bind(generator))();
 
-    assert.fileContent('package.json', /"email": "tester@bunny.com"/);
-    assert.fileContent('license', /tester@bunny.com/);
-    assert.fileContent('other/code_of_conduct.md', /tester@bunny.com/);
+    assert.fileContent('package.json', /"email": "test@test.com"/);
+    assert.fileContent('license', /test@test.com/);
+    assert.fileContent('other/code_of_conduct.md', /test@test.com/);
   });
 
   test('website', async () => {
