@@ -42,13 +42,11 @@ module.exports = class extends Generator {
         name: 'name',
         message: "Author's name",
         default: this.user.git.name(),
-        store: true,
       },
       {
         name: 'email',
         message: "Author's email",
         default: this.user.git.email(),
-        store: true,
       },
       {
         name: 'website',
