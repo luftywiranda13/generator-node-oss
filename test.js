@@ -105,7 +105,7 @@ describe('templating', () => {
     await pify(generator.run.bind(generator))();
 
     assert.fileContent('package.json', /"collectCoverage": true/);
-    assert.fileContent('.travis.yml', /after_script:/);
+    assert.fileContent('.travis.yml', /after_success:/);
     assert.fileContent('.travis.yml', /npm install -g codecov/);
     assert.fileContent('.travis.yml', /codecov/);
     assert.fileContent(
@@ -157,7 +157,7 @@ describe('templating', () => {
       "import temp from '../';"
     );
     assert.fileContent('.travis.yml', /before_script: npm run build/);
-    assert.fileContent('src/index.js', 'export default function temp(input)');
+    assert.fileContent('src/index.js', /export default input/);
     assert.fileContent('readme.md', /import temp from 'temp';/);
   });
 
