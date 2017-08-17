@@ -70,14 +70,20 @@
     "yeoman-generator",
     "yeoman",
     "generator",
+    "automate",
+    "automated",
+    "easy",
     "boilerplate",
-    "template",
     "scaffold",
-    "node",
-    "nodejs",
+    "starter-kit",
+    "template",
+    "javascript",
     "module",
     "node_module",
     "node-module",
+    "node",
+    "nodejs",
+    "npm",
     "open-source"
   ]
 }
