@@ -1,4 +1,4 @@
-<% if (esnext) { %>import <%= camelProject %> from '../';<% } else { %>'use strict';
+<% if (esnext) { %>import <%= camelProject %> from './';<% } else { %>'use strict';
 
 const <%= camelProject %> = require('./');<% } %>
 

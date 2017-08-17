@@ -63,7 +63,7 @@ it('generates files for esnext', async () => {
 
   await pify(generator.run.bind(generator))();
 
-  assert.file(['.babelrc', 'src/index.js', 'src/__tests__/index.test.js']);
+  assert.file(['.babelrc', 'src/index.js', 'src/index.test.js']);
   assert.noFile(['index.js', 'test.js']);
 });
 
@@ -153,8 +153,8 @@ describe('templating', () => {
       },
     });
     assert.fileContent(
-      'src/__tests__/index.test.js',
-      "import temp from '../';"
+      'src/index.test.js',
+      "import temp from './';"
     );
     assert.fileContent('.travis.yml', /before_script: npm run build/);
     assert.fileContent('src/index.js', /export default input/);

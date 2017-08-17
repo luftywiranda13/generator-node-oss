@@ -108,7 +108,7 @@ module.exports = class extends Generator {
 
     if (this.props.esnext) {
       mv('index.js', 'src/index.js');
-      mv('test.js', 'src/__tests__/index.test.js');
+      mv('test.js', 'src/index.test.js');
       this.fs.copy(
         this.templatePath('_babelrc'),
         this.destinationPath('.babelrc')
