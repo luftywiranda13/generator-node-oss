@@ -1,26 +1,54 @@
 # Contributing
 
-Thanks for being willing to contribute!
+Contributions are always welcome, no matter how large or small.
 
 **Working on your first Pull Request?** You can learn how from this *free* series
 [How to Contribute to an Open Source Project on GitHub](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github)
 
+## Code of Conduct
+
+By participating, you are expected to uphold this [Contributor Covenant Code of Conduct](./other/code_of_conduct.md). Please report unacceptable behavior to [<%= email %>](mailto:<%= email %>).
+
 ## Project setup
 
-1.  Fork and clone the repo
-2.  `npm install` to install dependencies
-3.  `npm test` to validate you‘ve got it working
-4.  Create a branch for your PR
+First, foork then clone the repo:
 
-> Tip: Keep your `master` branch pointing at the original repository and make pull requests from branches on your fork. To do this, run:
->
-> ```
-> git remote add upstream https://github.com/<%= githubUsername %>/<%= projectName %>
-> git fetch upstream
-> git branch --set-upstream-to=upstream/master master
-> ```
->
-> This will add the original repository as a “remote” called “upstream”, Then fetch the git information from that remote, then set your local `master` branch to use the upstream master branch whenever you run `git pull`. Then you can make all of your pull request branches based on this `master` branch. Whenever you want to update your version of `master`, do a regular `git pull`.
+```sh
+git clone https://github.com/your-username/<%= projectName %>
+cd <%= projectName %>
+git remote add upstream https://github.com/<%= githubUsername %>/<%= projectName %>
+git branch --set-upstream-to=upstream/master master
+```
+
+Install dependencies:
+
+```sh
+npm install
+```
+
+Run test suits to validate the project is working:
+
+```sh
+npm test
+```
+
+## Committing and Pushing changes
+
+Create a branch and start hacking:
+
+```sh
+git checkout -b my-branch
+```
+
+Commit and push your changes:
+
+```sh
+git add my/changed/files
+git commit
+git push origin my-branch
+```
+
+Open this project on [GitHub](https://github.com/<%= githubUsername %>/<%= projectName %>), then click “Compare & pull request”.
 
 ## Help needed
 
