@@ -35,7 +35,7 @@
     "jest": "^20.0.4",
     "lint-staged": "^4.0.3",
     "pify": "^3.0.0",
-    "remove-lockfiles": "^1.0.0",
+    "remove-lockfiles": "^1.1.1",
     "xo": "^0.18.2",
     "yeoman-assert": "^3.0.0",
     "yeoman-test": "^1.7.0"

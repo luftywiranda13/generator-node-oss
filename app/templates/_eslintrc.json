@@ -1,6 +1,19 @@
 {
-  "extends": [
-    "bunny",
-    "bunny/recommended"
-  ]
+  "extends": "airbnb-base",
+  "env": {
+    "jest": true,
+    "node": true
+  },
+  "rules": {
+    "arrow-parens": ["error", "as-needed"],
+    "comma-dangle": ["error", {
+      "arrays": "always-multiline",
+      "objects": "always-multiline",
+      "imports": "always-multiline",
+      "exports": "always-multiline",
+      "functions": "never"
+    }],
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+    "strict": "off"
+  }
 }
