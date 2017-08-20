@@ -145,6 +145,9 @@ describe('templating', () => {
         'babel-preset-env': /./,
         rimraf: /./
       },
+      'lint-staged': {
+        'src/**/*.js': []
+      },
       jest: {
         testEnvironment: 'node',
         collectCoverageFrom: ['src/**/*.js']
