@@ -85,8 +85,10 @@
     "nodejs",
     "npm",
     "open-source",
-    "jest",
     "babel",
-    "eslint"
+    "eslint",
+    "jest",
+    "prettier",
+    "xo"
   ]
 }
