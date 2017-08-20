@@ -96,8 +96,6 @@ module.exports = class extends Generator {
     };
 
     mv('_editorconfig', '.editorconfig');
-    mv('_eslintignore', '.eslintignore');
-    mv('_eslintrc.json', '.eslintrc.json');
     mv('_gitattributes', '.gitattributes');
     mv('_github/issue_template.md', '.github/issue_template.md');
     mv('_github/pull_request_template.md', '.github/pull_request_template.md');

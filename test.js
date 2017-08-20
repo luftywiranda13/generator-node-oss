@@ -36,8 +36,6 @@ it('generates default files', async () => {
     '.github/issue_template.md',
     '.github/pull_request_template.md',
     '.editorconfig',
-    '.eslintignore',
-    '.eslintrc.json',
     '.gitattributes',
     '.gitignore',
     '.travis.yml',
@@ -132,7 +130,6 @@ describe('templating', () => {
 
     await pify(generator.run.bind(generator))();
 
-    assert.fileContent('.eslintignore', /dist/);
     assert.fileContent('.gitignore', /dist/);
     // eslint-disable-next-line new-cap
     assert.JSONFileContent('package.json', {
