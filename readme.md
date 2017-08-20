@@ -9,13 +9,13 @@ This [Yeoman](http://yeoman.io) generator helps you to create a Node.js project 
 
 ## Why?
 
-- Generates a *ready-to-start* project structure
+- Generates a *ready to start* project
+- [Jest](https://facebook.github.io/jest) testing framework
+- Sensible [ESLint](http://eslint.org) config (bundled in [XO](https://github.com/sindresorhus/xo))
+- Checks for linting errors and reformats the codes using [Prettier](https://github.com/prettier/prettier) before commits
 - Shows repo quality through helpful badges
-- [GitHub templates](https://github.com/blog/2111-issue-and-pull-request-templates) (Issue, Pull Request, Contributing guidelines)
-- Pre-installed useful development tools ([Jest](https://facebook.github.io/jest), [ESLint](http://eslint.org), [Prettier](https://github.com/prettier/prettier), etc.)
-- Pre-configured dotfiles (`.gitignore`, `.gitattributes`, [`.editorconfig`](http://editorconfig.org), etc.)
+- [Issue, Pull Request, and Contributing guideline templates](https://github.com/blog/2111-issue-and-pull-request-templates)
 - [Travis CI](https://travis-ci.org) configuration
-- Supports for ES2015+ with [Babel](https://babeljs.io) (optional)
 
 ## Installation
 
