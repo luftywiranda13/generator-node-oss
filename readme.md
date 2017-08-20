@@ -2,6 +2,7 @@
 
 [![npm](https://img.shields.io/npm/v/generator-node-oss.svg?style=flat-square)](https://www.npmjs.com/package/generator-node-oss)
 [![Travis branch](https://img.shields.io/travis/luftywiranda13/generator-node-oss/master.svg?style=flat-square)](https://travis-ci.org/luftywiranda13/generator-node-oss)
+[![AppVeyor branch](https://img.shields.io/appveyor/ci/luftywiranda13/generator-node-oss/master.svg?style=flat-square)](https://ci.appveyor.com/project/luftywiranda13/generator-node-oss)
 [![Codecov branch](https://img.shields.io/codecov/c/github/luftywiranda13/generator-node-oss/master.svg?style=flat-square)](https://codecov.io/gh/luftywiranda13/generator-node-oss)
 [![npm](https://img.shields.io/npm/dm/generator-node-oss.svg?style=flat-square)](https://npm-stat.com/charts.html?package=generator-node-oss&from=2016-04-01)
 
