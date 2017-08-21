@@ -18,46 +18,46 @@ module.exports = class extends Generator {
       {
         name: 'projectName',
         message: 'Project name',
-        default: this.appname
+        default: this.appname,
       },
       {
         name: 'description',
         message: 'Description',
         default: 'as cute as bunny',
-        store: true
+        store: true,
       },
       {
         name: 'esnext',
         message: 'Need ES2015+',
         type: 'confirm',
-        default: false
+        default: false,
       },
       {
         name: 'coverage',
         message: 'Need code coverage',
         type: 'confirm',
-        default: false
+        default: false,
       },
       {
         name: 'name',
-        message: 'Author\'s name',
-        default: this.user.git.name()
+        message: "Author's name",
+        default: this.user.git.name(),
       },
       {
         name: 'email',
-        message: 'Author\'s email',
-        default: this.user.git.email()
+        message: "Author's email",
+        default: this.user.git.email(),
       },
       {
         name: 'website',
-        message: 'Author\'s website',
-        store: true
+        message: "Author's website",
+        store: true,
       },
       {
         name: 'githubUsername',
         message: 'GitHub username',
-        store: true
-      }
+        store: true,
+      },
     ]).then(answers => {
       this.props = {
         projectName: kebabCase(answers.projectName),
@@ -68,7 +68,7 @@ module.exports = class extends Generator {
         name: answers.name,
         email: answers.email,
         website: answers.website,
-        githubUsername: answers.githubUsername
+        githubUsername: answers.githubUsername,
       };
     });
   }
@@ -81,7 +81,7 @@ module.exports = class extends Generator {
   }
 
   default() {
-    this.spawnCommandSync('git', ['init'], {stdio: false});
+    this.spawnCommandSync('git', ['init'], { stdio: false });
   }
 
   writing() {
@@ -114,8 +114,9 @@ module.exports = class extends Generator {
     }
   }
   install() {
-    this.installDependencies({bower: false});
+    this.installDependencies({ bower: false });
   }
+
   end() {
     this.fs.delete(findUp.sync('.yo-rc.json'));
   }

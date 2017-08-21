@@ -12,13 +12,13 @@ let generator;
 beforeEach(async () => {
   await pify(helpers.testDirectory)(path.join(__dirname, 'temp'));
   generator = helpers.createGenerator('node-oss:app', ['../app'], null, {
-    skipInstall: true
+    skipInstall: true,
   });
 });
 
 it('creates and uses the folder for the project', async () => {
   helpers.mockPrompt(generator, {
-    projectName: 'test'
+    projectName: 'test',
   });
 
   await pify(generator.run.bind(generator))();
@@ -47,7 +47,7 @@ it('generates default files', async () => {
     'other/roadmap.md',
     'package.json',
     'readme.md',
-    'test.js'
+    'test.js',
   ]);
 
   assert.noFile(['.babelrc', 'src/index.js', 'src/__tests__/index.test.js']);
@@ -56,7 +56,7 @@ it('generates default files', async () => {
 
 it('generates files for esnext', async () => {
   helpers.mockPrompt(generator, {
-    esnext: true
+    esnext: true,
   });
 
   await pify(generator.run.bind(generator))();
@@ -69,7 +69,7 @@ describe('templating', () => {
   test('projectName', async () => {
     helpers.mockPrompt(generator, {
       projectName: 'foo',
-      githubUsername: 'test'
+      githubUsername: 'test',
     });
 
     await pify(generator.run.bind(generator))();
@@ -83,7 +83,7 @@ describe('templating', () => {
       '[![npm](https://img.shields.io/npm/v/foo.svg?style=flat-square)](https://www.npmjs.com/package/foo)\n[![Travis branch](https://img.shields.io/travis/test/foo/master.svg?style=flat-square)](https://travis-ci.org/test/foo)\n[![npm](https://img.shields.io/npm/dm/foo.svg?style=flat-square)](https://npm-stat.com/charts.html?package=foo&from=2016-04-01)'
     );
     assert.fileContent('readme.md', /npm install --save foo/);
-    assert.fileContent('readme.md', 'const foo = require(\'foo\');');
+    assert.fileContent('readme.md', "const foo = require('foo');");
     assert.fileContent(
       '.github/issue_template.md',
       /foo version: <!-- run `npm ls foo` -->/
@@ -97,7 +97,7 @@ describe('templating', () => {
   test('coverage', async () => {
     helpers.mockPrompt(generator, {
       coverage: true,
-      githubUsername: 'test'
+      githubUsername: 'test',
     });
 
     await pify(generator.run.bind(generator))();
@@ -114,7 +114,7 @@ describe('templating', () => {
 
   test('description', async () => {
     helpers.mockPrompt(generator, {
-      description: 'foo'
+      description: 'foo',
     });
 
     await pify(generator.run.bind(generator))();
@@ -125,7 +125,7 @@ describe('templating', () => {
 
   test('esnext', async () => {
     helpers.mockPrompt(generator, {
-      esnext: true
+      esnext: true,
     });
 
     await pify(generator.run.bind(generator))();
@@ -135,7 +135,7 @@ describe('templating', () => {
     assert.JSONFileContent('package.json', {
       scripts: {
         prebuild: 'rimraf dist',
-        build: 'babel --copy-files --out-dir dist --ignore *.test.js src'
+        build: 'babel --copy-files --out-dir dist --ignore *.test.js src',
       },
       main: 'dist/index.js',
       files: ['dist'],
@@ -143,17 +143,17 @@ describe('templating', () => {
         'babel-cli': /./,
         'babel-plugin-add-module-exports': /./,
         'babel-preset-env': /./,
-        rimraf: /./
+        rimraf: /./,
       },
       'lint-staged': {
-        'src/**/*.js': []
+        'src/**/*.js': [],
       },
       jest: {
         testEnvironment: 'node',
-        collectCoverageFrom: ['src/**/*.js']
-      }
+        collectCoverageFrom: ['src/**/*.js'],
+      },
     });
-    assert.fileContent('src/index.test.js', 'import temp from \'./\';');
+    assert.fileContent('src/index.test.js', "import temp from './';");
     assert.fileContent('.travis.yml', /before_script: npm run build/);
     assert.fileContent('src/index.js', /export default input/);
     assert.fileContent('readme.md', /import temp from 'temp';/);
@@ -161,7 +161,7 @@ describe('templating', () => {
 
   test('name', async () => {
     helpers.mockPrompt(generator, {
-      name: 'foo bar'
+      name: 'foo bar',
     });
 
     await pify(generator.run.bind(generator))();
@@ -173,7 +173,7 @@ describe('templating', () => {
 
   test('email', async () => {
     helpers.mockPrompt(generator, {
-      email: 'test@test.com'
+      email: 'test@test.com',
     });
 
     await pify(generator.run.bind(generator))();
@@ -185,7 +185,7 @@ describe('templating', () => {
 
   test('website', async () => {
     helpers.mockPrompt(generator, {
-      website: 'test.com'
+      website: 'test.com',
     });
 
     await pify(generator.run.bind(generator))();

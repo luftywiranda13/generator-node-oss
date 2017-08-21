@@ -31,6 +31,7 @@
     "babel-jest": "^20.0.3",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-preset-env": "^1.6.0",<% } %>
+    "eslint-config-prettier": "^2.3.0",
     "husky": "^0.14.3",
     "jest": "^20.0.4",
     "lint-staged": "^4.0.3",
@@ -48,13 +49,13 @@
   },
   "lint-staged": {<% if (esnext) { %>
     "src/**/*.js": [<% } else { %>"*.js": [<% } %>
-      "prettier --trailing-comma es5 --single-quote --write",
       "xo --fix",
+      "prettier --trailing-comma es5 --single-quote --write",
       "git add"
     ]
   },
   "xo": {
-    "space": true,
+    "extends": "prettier",
     "envs": [
       "jest"
     ]
