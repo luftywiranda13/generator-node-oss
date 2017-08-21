@@ -16,6 +16,7 @@
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate",
     "precommit": "remove-lockfiles && lint-staged",
+    "lint:fix": "xo --fix",
     "test": "xo && jest"
   },
   "files": [
@@ -23,8 +24,8 @@
   ],
   "dependencies": {
     "find-up": "^2.1.0",
-    "lodash.camelcase": "^4.3.0",
-    "lodash.kebabcase": "^4.1.1",
+    "is-array-elem": "^1.0.0",
+    "lodash": "^4.17.4",
     "mkdirp": "^0.5.1",
     "yeoman-generator": "^1.1.1"
   },
@@ -54,9 +55,9 @@
     }
   },
   "lint-staged": {
-    "*.js": [
-      "xo --fix",
-      "prettier --trailing-comma es5 --single-quote --write",
+    "{test.js,app/*.js,!app/templates/**}": [
+      "xo",
+      "prettier --single-quote --trailing-comma es5 --write",
       "git add"
     ]
   },

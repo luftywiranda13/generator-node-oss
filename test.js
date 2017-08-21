@@ -33,18 +33,12 @@ it('generates default files', async () => {
 
   assert.file([
     '.git',
-    '.github/issue_template.md',
-    '.github/pull_request_template.md',
     '.editorconfig',
     '.gitattributes',
     '.gitignore',
     '.travis.yml',
-    'contributing.md',
     'index.js',
     'license',
-    'other/code_of_conduct.md',
-    'other/examples.md',
-    'other/roadmap.md',
     'package.json',
     'readme.md',
     'test.js',
@@ -54,18 +48,7 @@ it('generates default files', async () => {
   assert.noFile(findUp.sync('.yo-rc.json'));
 });
 
-it('generates files for esnext', async () => {
-  helpers.mockPrompt(generator, {
-    esnext: true,
-  });
-
-  await pify(generator.run.bind(generator))();
-
-  assert.file(['.babelrc', 'src/index.js', 'src/index.test.js']);
-  assert.noFile(['index.js', 'test.js']);
-});
-
-describe('templating', () => {
+describe('prompts', () => {
   test('projectName', async () => {
     helpers.mockPrompt(generator, {
       projectName: 'foo',
@@ -76,7 +59,6 @@ describe('templating', () => {
 
     assert.fileContent('package.json', /"name": "foo"/);
     assert.fileContent('package.json', 'https://github.com/test/foo');
-    assert.fileContent('contributing.md', 'https://github.com/test/foo');
     assert.fileContent('readme.md', /# foo/);
     assert.fileContent(
       'readme.md',
@@ -84,32 +66,6 @@ describe('templating', () => {
     );
     assert.fileContent('readme.md', /npm install --save foo/);
     assert.fileContent('readme.md', "const foo = require('foo');");
-    assert.fileContent(
-      '.github/issue_template.md',
-      /foo version: <!-- run `npm ls foo` -->/
-    );
-    assert.fileContent(
-      '.github/pull_request_template.md',
-      'https://github.com/test/foo/blob/master/contributing.md'
-    );
-  });
-
-  test('coverage', async () => {
-    helpers.mockPrompt(generator, {
-      coverage: true,
-      githubUsername: 'test',
-    });
-
-    await pify(generator.run.bind(generator))();
-
-    assert.fileContent('package.json', /"collectCoverage": true/);
-    assert.fileContent('.travis.yml', /after_success:/);
-    assert.fileContent('.travis.yml', /npm install -g codecov/);
-    assert.fileContent('.travis.yml', /codecov/);
-    assert.fileContent(
-      'readme.md',
-      '[![Codecov branch](https://img.shields.io/codecov/c/github/test/temp/master.svg?style=flat-square)](https://codecov.io/gh/test/temp)'
-    );
   });
 
   test('description', async () => {
@@ -121,42 +77,6 @@ describe('templating', () => {
 
     assert.fileContent('package.json', /"description": "foo"/);
     assert.fileContent('readme.md', /foo/);
-  });
-
-  test('esnext', async () => {
-    helpers.mockPrompt(generator, {
-      esnext: true,
-    });
-
-    await pify(generator.run.bind(generator))();
-
-    assert.fileContent('.gitignore', /dist/);
-    // eslint-disable-next-line new-cap
-    assert.JSONFileContent('package.json', {
-      scripts: {
-        prebuild: 'rimraf dist',
-        build: 'babel --copy-files --out-dir dist --ignore *.test.js src',
-      },
-      main: 'dist/index.js',
-      files: ['dist'],
-      devDependencies: {
-        'babel-cli': /./,
-        'babel-plugin-add-module-exports': /./,
-        'babel-preset-env': /./,
-        rimraf: /./,
-      },
-      'lint-staged': {
-        'src/**/*.js': [],
-      },
-      jest: {
-        testEnvironment: 'node',
-        collectCoverageFrom: ['src/**/*.js'],
-      },
-    });
-    assert.fileContent('src/index.test.js', "import temp from './';");
-    assert.fileContent('.travis.yml', /before_script: npm run build/);
-    assert.fileContent('src/index.js', /export default input/);
-    assert.fileContent('readme.md', /import temp from 'temp';/);
   });
 
   test('name', async () => {
@@ -180,7 +100,6 @@ describe('templating', () => {
 
     assert.fileContent('package.json', /"email": "test@test.com"/);
     assert.fileContent('license', /test@test.com/);
-    assert.fileContent('other/code_of_conduct.md', /test@test.com/);
   });
 
   test('website', async () => {
@@ -192,5 +111,85 @@ describe('templating', () => {
 
     assert.fileContent('package.json', /"url": "test.com"/);
     assert.fileContent('readme.md', 'test.com');
+  });
+
+  describe('extras', () => {
+    test('esnext', async () => {
+      helpers.mockPrompt(generator, {
+        extras: ['esnext'],
+      });
+
+      await pify(generator.run.bind(generator))();
+
+      assert.file(['.babelrc', 'src/index.js', 'src/index.test.js']);
+      assert.noFile(['index.js', 'test.js']);
+
+      assert.fileContent('.gitignore', /dist/);
+      assert.fileContent('package.json', /"prebuild":/);
+      assert.fileContent('package.json', /"build":/);
+      assert.fileContent('package.json', /"main":/);
+      assert.fileContent('package.json', /["dist"]/);
+      assert.fileContent('package.json', /"babel-cli"/);
+      assert.fileContent('package.json', /"babel-plugin-add-module-exports"/);
+      assert.fileContent('package.json', /"babel-preset-env"/);
+      assert.fileContent('package.json', /"rimraf"/);
+      assert.fileContent('package.json', 'src/**/*.js');
+      assert.fileContent('src/index.test.js', "import temp from './';");
+      assert.fileContent('.travis.yml', /before_script: npm run build/);
+      assert.fileContent('src/index.js', /export default input/);
+      assert.fileContent('readme.md', /import temp from 'temp';/);
+    });
+
+    test('coverage', async () => {
+      helpers.mockPrompt(generator, {
+        extras: ['coverage'],
+        githubUsername: 'test',
+      });
+
+      await pify(generator.run.bind(generator))();
+
+      assert.fileContent('package.json', /"collectCoverage": true/);
+      assert.fileContent('.travis.yml', /after_success:/);
+      assert.fileContent('.travis.yml', /npm install -g codecov/);
+      assert.fileContent('.travis.yml', /codecov/);
+      assert.fileContent(
+        'readme.md',
+        '[![Codecov branch](https://img.shields.io/codecov/c/github/test/temp/master.svg?style=flat-square)](https://codecov.io/gh/test/temp)'
+      );
+    });
+
+    test('prettier', async () => {
+      helpers.mockPrompt(generator, {
+        extras: ['prettier'],
+      });
+
+      await pify(generator.run.bind(generator))();
+
+      assert.fileContent('package.json', /"eslint-config-prettier"/);
+      assert.fileContent('package.json', /"prettier"/);
+      assert.fileContent('package.json', /"extends": "prettier"/);
+    });
+
+    test('githubTemplates', async () => {
+      helpers.mockPrompt(generator, {
+        projectName: 'foo',
+        email: 'test@test.com',
+        githubUsername: 'test',
+        extras: ['githubTemplates'],
+      });
+
+      await pify(generator.run.bind(generator))();
+
+      assert.fileContent('contributing.md', 'https://github.com/test/foo');
+      assert.fileContent(
+        '.github/issue_template.md',
+        /foo version: <!-- run `npm ls foo` -->/
+      );
+      assert.fileContent(
+        '.github/pull_request_template.md',
+        'https://github.com/test/foo/blob/master/contributing.md'
+      );
+      assert.fileContent('other/code_of_conduct.md', /test@test.com/);
+    });
   });
 });

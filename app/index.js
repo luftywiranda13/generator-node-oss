@@ -2,10 +2,10 @@
 
 const path = require('path');
 
-const Generator = require('yeoman-generator');
-const camelCase = require('lodash.camelcase');
-const kebabCase = require('lodash.kebabcase');
+const _ = require('lodash');
 const findUp = require('find-up');
+const Generator = require('yeoman-generator');
+const isArrayElem = require('is-array-elem');
 const mkdirp = require('mkdirp');
 
 module.exports = class extends Generator {
@@ -27,16 +27,28 @@ module.exports = class extends Generator {
         store: true,
       },
       {
-        name: 'esnext',
-        message: 'Need ES2015+',
-        type: 'confirm',
-        default: false,
-      },
-      {
-        name: 'coverage',
-        message: 'Need code coverage',
-        type: 'confirm',
-        default: false,
+        name: 'extras',
+        message: 'Extra features',
+        type: 'checkbox',
+        choices: [
+          {
+            name: 'Code Coverage',
+            value: 'coverage',
+            checked: true,
+          },
+          {
+            name: 'Auto-formatting with Prettier',
+            value: 'prettier',
+          },
+          {
+            name: 'ESNext with Babel',
+            value: 'esnext',
+          },
+          {
+            name: 'GitHub templates',
+            value: 'githubTemplates',
+          },
+        ],
       },
       {
         name: 'name',
@@ -60,11 +72,13 @@ module.exports = class extends Generator {
       },
     ]).then(answers => {
       this.props = {
-        projectName: kebabCase(answers.projectName),
-        camelProject: camelCase(answers.projectName),
+        projectName: _.kebabCase(answers.projectName),
+        camelProject: _.camelCase(answers.projectName),
         description: answers.description,
-        esnext: answers.esnext,
-        coverage: answers.coverage,
+        coverage: isArrayElem(answers.extras, 'coverage'),
+        esnext: isArrayElem(answers.extras, 'esnext'),
+        prettier: isArrayElem(answers.extras, 'prettier'),
+        githubTemplates: isArrayElem(answers.extras, 'githubTemplates'),
         name: answers.name,
         email: answers.email,
         website: answers.website,
@@ -86,7 +100,13 @@ module.exports = class extends Generator {
 
   writing() {
     this.fs.copyTpl(
-      [`${this.templatePath()}/**`, '!**/_babelrc'],
+      [
+        `${this.templatePath()}/**`,
+        '!**/_babelrc',
+        '!**/_github/**',
+        '!**/contributing.md',
+        '!**/other/**',
+      ],
       this.destinationPath(),
       this.props
     );
@@ -97,8 +117,6 @@ module.exports = class extends Generator {
 
     mv('_editorconfig', '.editorconfig');
     mv('_gitattributes', '.gitattributes');
-    mv('_github/issue_template.md', '.github/issue_template.md');
-    mv('_github/pull_request_template.md', '.github/pull_request_template.md');
     mv('_gitignore', '.gitignore');
     mv('_package.json', 'package.json');
     mv('_test.js', 'test.js');
@@ -110,6 +128,24 @@ module.exports = class extends Generator {
       this.fs.copy(
         this.templatePath('_babelrc'),
         this.destinationPath('.babelrc')
+      );
+    }
+
+    if (this.props.githubTemplates) {
+      this.fs.copyTpl(
+        this.templatePath('_github'),
+        this.destinationPath('.github'),
+        this.props
+      );
+      this.fs.copyTpl(
+        this.templatePath('other'),
+        this.destinationPath('other'),
+        this.props
+      );
+      this.fs.copyTpl(
+        this.templatePath('contributing.md'),
+        this.destinationPath('contributing.md'),
+        this.props
       );
     }
   }

@@ -16,6 +16,7 @@
     "precommit": "remove-lockfiles && lint-staged",<% if (esnext) { %>
     "prebuild": "rimraf dist",
     "build": "babel --copy-files --out-dir dist --ignore *.test.js src",<% } %>
+    "lint:fix": "xo --fix",
     "test": "xo && jest"
   },<% if (esnext) { %>
   "main": "dist/index.js",
@@ -30,14 +31,14 @@
     "babel-cli": "^6.26.0",
     "babel-jest": "^20.0.3",
     "babel-plugin-add-module-exports": "^0.2.1",
-    "babel-preset-env": "^1.6.0",<% } %>
-    "eslint-config-prettier": "^2.3.0",
+    "babel-preset-env": "^1.6.0",<% } %><% if (prettier) { %>
+    "eslint-config-prettier": "^2.3.0",<% } %>
     "husky": "^0.14.3",
     "jest": "^20.0.4",
-    "lint-staged": "^4.0.3",
-    "prettier": "^1.5.3",
-    "remove-lockfiles": "^1.1.1"<% if (esnext) { %>,
-    "rimraf": "^2.6.1"<% } %>,
+    "lint-staged": "^4.0.3",<% if (prettier) { %>
+    "prettier": "^1.5.3",<% } %>
+    "remove-lockfiles": "^1.1.1",<% if (esnext) { %>
+    "rimraf": "^2.6.1",<% } %>
     "xo": "^0.18.2"
   },
   "jest": {
@@ -47,15 +48,16 @@
       "src/**/*.js"
     ]<% } %>
   },
-  "lint-staged": {<% if (esnext) { %>
-    "src/**/*.js": [<% } else { %>"*.js": [<% } %>
-      "xo --fix",
-      "prettier --trailing-comma es5 --single-quote --write",
+  "lint-staged": {
+    "*.js": [
+      "xo",<% if (prettier) { %>
+      "prettier --single-quote --trailing-comma es5 --write",<% } %>
       "git add"
     ]
   },
-  "xo": {
-    "extends": "prettier",
+  "xo": {<% if (prettier) { %>
+    "extends": "prettier",<% } else { %>
+    "space": true,<% } %>
     "envs": [
       "jest"
     ]
