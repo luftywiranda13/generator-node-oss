@@ -32,19 +32,6 @@ Run test suits to validate the project is working:
 npm test
 ```
 
-## Add yourself as a contributor
-
-> This project follows the [all contributors](https://github.com/kentcdodds/all-contributors) specification. To add yourself to the table of
-contributors on the [`readme.md`](./readme.md), please use the automated script as part of your PR:
-
-```sh
-npm run contributors:add
-```
-
-> Follow the prompt. If you‘ve already added yourself to the list and are making a
-new type of contribution, you can run it again and select the added contribution
-type.
-
 ## Committing and Pushing changes
 
 > This project uses [semantic-release](https://npmjs.com/package/semantic-release) to do automatic releases and generate a changelog based on the
@@ -67,6 +54,19 @@ git push origin my-branch
 ```
 
 Open this project on [GitHub](https://github.com/luftywiranda13/generator-node-oss), then click “Compare & pull request”.
+
+## Add yourself as a contributor
+
+> This project follows the [all contributors](https://github.com/kentcdodds/all-contributors) specification. To add yourself to the table of
+contributors on the [`readme.md`](./readme.md), please use the automated script as part of your PR:
+
+```sh
+npm run contributors:add
+```
+
+> Follow the prompt. If you‘ve already added yourself to the list and are making a
+new type of contribution, you can run it again and select the added contribution
+type.
 
 ## Help needed
 
