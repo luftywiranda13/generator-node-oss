@@ -31,6 +31,12 @@ npm install --global yo generator-node-oss
 yo node-oss
 ```
 
+## FAQ
+
+#### How to upgrade existing project scaffolded with Yeoman?
+
+Read how to do it [here](https://stackoverflow.com/a/18500003).
+
 ## Related
 
 - [generator-kcd-oss](https://github.com/kentcdodds/generator-kcd-oss) - More features but many things left untouched
