@@ -11,7 +11,7 @@ By participating, you are expected to uphold this [Contributor Covenant Code of 
 
 ## Project setup
 
-First, foork then clone the repo:
+First, fork then clone the repo:
 
 ```sh
 git clone https://github.com/your-username/<%= projectName %>
