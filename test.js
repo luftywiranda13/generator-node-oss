@@ -16,14 +16,14 @@ beforeEach(async () => {
   });
 });
 
-it('creates and uses the folder for the project', async () => {
+it('generates directory for the project', async () => {
   helpers.mockPrompt(generator, {
     projectName: 'test',
   });
 
   await pify(generator.run.bind(generator))();
 
-  expect(generator.destinationRoot()).toBe(findUp.sync('test'));
+  expect(generator.destinationRoot()).toBe(path.join(__dirname, 'temp/test'));
 });
 
 it('generates default files', async () => {
