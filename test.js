@@ -44,7 +44,7 @@ it('generates default files', async () => {
     'test.js',
   ]);
 
-  assert.noFile(['.babelrc', 'src/index.js', 'src/__tests__/index.test.js']);
+  assert.noFile(['.babelrc', 'src/index.js', 'src/index.test.js']);
   assert.noFile(findUp.sync('.yo-rc.json'));
 });
 
