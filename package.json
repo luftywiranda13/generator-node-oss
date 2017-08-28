@@ -23,6 +23,7 @@
     "app"
   ],
   "dependencies": {
+    "command-exists": "^1.2.2",
     "find-up": "^2.1.0",
     "is-array-elem": "^1.0.0",
     "lodash": "^4.17.4",

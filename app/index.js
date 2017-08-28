@@ -3,6 +3,7 @@
 const path = require('path');
 
 const _ = require('lodash');
+const commandExists = require('command-exists').sync;
 const findUp = require('find-up');
 const Generator = require('yeoman-generator');
 const isArrayElem = require('is-array-elem');
@@ -150,7 +151,13 @@ module.exports = class extends Generator {
     }
   }
   install() {
-    this.installDependencies({ bower: false });
+    const hasYarn = commandExists('yarn');
+
+    this.installDependencies({
+      bower: false,
+      npm: !hasYarn,
+      yarn: hasYarn,
+    });
   }
 
   end() {
