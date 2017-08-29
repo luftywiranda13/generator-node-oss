@@ -16,8 +16,7 @@
   "scripts": {
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate",
-    "precommit": "remove-lockfiles && lint-staged",
-    "lint:fix": "xo --fix",
+    "precommit": "remove-lockfiles && xo --fix && lint-staged",
     "test": "xo && jest"
   },
   "files": [
@@ -39,7 +38,7 @@
     "jest": "^20.0.4",
     "lint-staged": "^4.0.4",
     "pify": "^3.0.0",
-    "prettier": "^1.6.0",
+    "prettier": "^1.6.1",
     "remove-lockfiles": "^1.1.1",
     "xo": "^0.18.2",
     "yeoman-assert": "^3.0.0",
@@ -58,7 +57,6 @@
   },
   "lint-staged": {
     "{test.js,app/*.js,!app/templates/**}": [
-      "xo",
       "prettier --single-quote --trailing-comma es5 --write",
       "git add"
     ]

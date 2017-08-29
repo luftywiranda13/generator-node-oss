@@ -13,10 +13,9 @@
     "node": ">=4"
   },
   "scripts": {
-    "precommit": "remove-lockfiles && lint-staged",<% if (esnext) { %>
+    "precommit": "remove-lockfiles && xo --fix<% if (prettier) { %> && lint-staged<% } %>",<% if (esnext) { %>
     "prebuild": "rimraf dist",
     "build": "babel --copy-files --out-dir dist --ignore *.test.js src",<% } %>
-    "lint:fix": "xo --fix",
     "test": "xo && jest"
   },<% if (esnext) { %>
   "main": "dist/index.js",
@@ -34,9 +33,9 @@
     "babel-preset-env": "^1.6.0",<% } %><% if (prettier) { %>
     "eslint-config-prettier": "^2.3.0",<% } %>
     "husky": "^0.14.3",
-    "jest": "^20.0.4",
-    "lint-staged": "^4.0.4",<% if (prettier) { %>
-    "prettier": "^1.6.0",<% } %>
+    "jest": "^20.0.4",<% if (prettier) { %>
+    "lint-staged": "^4.0.4",
+    "prettier": "^1.6.1",<% } %>
     "remove-lockfiles": "^1.1.1",<% if (esnext) { %>
     "rimraf": "^2.6.1",<% } %>
     "xo": "^0.18.2"
@@ -47,14 +46,13 @@
     "collectCoverageFrom": [
       "src/**/*.js"
     ]<% } %>
-  },
+  },<% if (prettier) { %>
   "lint-staged": {
-    "*.js": [
-      "xo",<% if (prettier) { %>
-      "prettier --single-quote --trailing-comma es5 --write",<% } %>
+    "<% if (esnext) { %>src/**/*.js<% } else {%>*.js<% } %>": [
+      "prettier --single-quote --trailing-comma es5 --write",
       "git add"
     ]
-  },
+  },<% } %>
   "xo": {<% if (prettier) { %>
     "extends": "prettier",<% } else { %>
     "space": true,<% } %>
