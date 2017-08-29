@@ -48,7 +48,7 @@
     ]<% } %>
   },<% if (prettier) { %>
   "lint-staged": {
-    "<% if (esnext) { %>src/**/*.js<% } else {%>*.js<% } %>": [
+    "*.js": [
       "prettier --single-quote --trailing-comma es5 --write",
       "git add"
     ]
