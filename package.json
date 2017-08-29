@@ -25,7 +25,7 @@
   "dependencies": {
     "command-exists": "^1.2.2",
     "find-up": "^2.1.0",
-    "is-array-elem": "^1.0.0",
+    "is-array-elem": "^1.0.2",
     "lodash": "^4.17.4",
     "mkdirp": "^0.5.1",
     "yeoman-generator": "^1.1.1"
@@ -36,9 +36,9 @@
     "eslint-config-prettier": "^2.3.0",
     "husky": "^0.14.3",
     "jest": "^20.0.4",
-    "lint-staged": "^4.0.3",
+    "lint-staged": "^4.0.4",
     "pify": "^3.0.0",
-    "prettier": "^1.5.3",
+    "prettier": "^1.6.0",
     "remove-lockfiles": "^1.1.1",
     "xo": "^0.18.2",
     "yeoman-assert": "^3.0.0",
