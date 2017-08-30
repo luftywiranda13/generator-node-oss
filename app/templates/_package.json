@@ -18,13 +18,10 @@
     "build": "babel --copy-files --out-dir dist --ignore *.test.js src",<% } %>
     "test": "xo && jest"
   },<% if (esnext) { %>
-  "main": "dist/index.js",
+  "main": "dist/index.js",<% } %>
   "files": [
-    "dist"
-  ],<% } else { %>
-  "files": [
-    "index.js"
-  ],<% } %>
+    "<% if (esnext) { %>dist<% } else { %>index.js<% } %>"
+  ],
   "dependencies": {},
   "devDependencies": {<% if (esnext) { %>
     "babel-cli": "^6.26.0",
