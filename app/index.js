@@ -157,10 +157,7 @@ module.exports = class extends Generator {
       bower: false,
       npm: !hasYarn,
       yarn: hasYarn,
+      callback: this.fs.delete(findUp.sync('.yo-rc.json')),
     });
-  }
-
-  end() {
-    this.fs.delete(findUp.sync('.yo-rc.json'));
   }
 };
