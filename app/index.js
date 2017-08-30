@@ -2,10 +2,11 @@
 
 const path = require('path');
 
-const _ = require('lodash');
+const Generator = require('yeoman-generator');
+const camelCase = require('lodash.camelcase');
+const kebabCase = require('lodash.kebabcase');
 const commandExists = require('command-exists').sync;
 const findUp = require('find-up');
-const Generator = require('yeoman-generator');
 const isArrayElem = require('is-array-elem');
 const mkdirp = require('mkdirp');
 
@@ -73,8 +74,8 @@ module.exports = class extends Generator {
       },
     ]).then(answers => {
       this.props = {
-        projectName: _.kebabCase(answers.projectName),
-        camelProject: _.camelCase(answers.projectName),
+        projectName: kebabCase(answers.projectName),
+        camelProject: camelCase(answers.projectName),
         description: answers.description,
         coverage: isArrayElem(answers.extras, 'coverage'),
         esnext: isArrayElem(answers.extras, 'esnext'),
