@@ -10,10 +10,6 @@ const findUp = require('find-up');
 const isArrayElem = require('is-array-elem');
 
 module.exports = class extends Generator {
-  initializing() {
-    this.props = {};
-  }
-
   prompting() {
     return this.prompt([
       {
@@ -90,15 +86,9 @@ module.exports = class extends Generator {
 
   configuring() {
     if (path.basename(this.destinationPath()) !== this.props.projectName) {
-      this.spawnCommandSync('mkdir', [this.props.projectName], {
-        stdio: false,
-      });
+      this.spawnCommandSync('mkdir', [this.props.projectName]);
       this.destinationRoot(this.destinationPath(this.props.projectName));
     }
-  }
-
-  default() {
-    this.spawnCommandSync('git', ['init'], { stdio: false });
   }
 
   writing() {
@@ -151,6 +141,8 @@ module.exports = class extends Generator {
         this.props
       );
     }
+
+    this.spawnCommandSync('git', ['init'], { stdio: false });
   }
   install() {
     const hasYarn = commandExists('yarn');
