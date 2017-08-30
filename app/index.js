@@ -8,7 +8,6 @@ const kebabCase = require('lodash.kebabcase');
 const commandExists = require('command-exists').sync;
 const findUp = require('find-up');
 const isArrayElem = require('is-array-elem');
-const mkdirp = require('mkdirp');
 
 module.exports = class extends Generator {
   initializing() {
@@ -91,7 +90,9 @@ module.exports = class extends Generator {
 
   configuring() {
     if (path.basename(this.destinationPath()) !== this.props.projectName) {
-      mkdirp(this.props.projectName);
+      this.spawnCommandSync('mkdir', [this.props.projectName], {
+        stdio: false,
+      });
       this.destinationRoot(this.destinationPath(this.props.projectName));
     }
   }
