@@ -5,7 +5,7 @@ const path = require('path');
 const Generator = require('yeoman-generator');
 const camelCase = require('lodash.camelcase');
 const kebabCase = require('lodash.kebabcase');
-const commandExists = require('command-exists').sync;
+const commandExists = require('command-exists');
 const findUp = require('find-up');
 const isArrayElem = require('is-array-elem');
 
@@ -145,7 +145,7 @@ module.exports = class extends Generator {
     this.spawnCommandSync('git', ['init'], { stdio: false });
   }
   install() {
-    const hasYarn = commandExists('yarn');
+    const hasYarn = commandExists.sync('yarn');
 
     this.installDependencies({
       bower: false,
