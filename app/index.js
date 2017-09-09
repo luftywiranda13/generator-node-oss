@@ -5,9 +5,9 @@ const path = require('path');
 const Generator = require('yeoman-generator');
 const camelCase = require('lodash.camelcase');
 const kebabCase = require('lodash.kebabcase');
+const includes = require('lodash.includes');
 const commandExists = require('command-exists');
 const findUp = require('find-up');
-const isArrayElem = require('is-array-elem');
 
 module.exports = class extends Generator {
   prompting() {
@@ -72,10 +72,10 @@ module.exports = class extends Generator {
         projectName: kebabCase(answers.projectName),
         camelProject: camelCase(answers.projectName),
         description: answers.description,
-        coverage: isArrayElem(answers.extras, 'coverage'),
-        esnext: isArrayElem(answers.extras, 'esnext'),
-        prettier: isArrayElem(answers.extras, 'prettier'),
-        githubTemplates: isArrayElem(answers.extras, 'githubTemplates'),
+        coverage: includes(answers.extras, 'coverage'),
+        esnext: includes(answers.extras, 'esnext'),
+        prettier: includes(answers.extras, 'prettier'),
+        githubTemplates: includes(answers.extras, 'githubTemplates'),
         name: answers.name,
         email: answers.email,
         website: answers.website,

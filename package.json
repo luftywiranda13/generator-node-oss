@@ -25,8 +25,8 @@
   "dependencies": {
     "command-exists": "^1.2.2",
     "find-up": "^2.1.0",
-    "is-array-elem": "^1.0.2",
     "lodash.camelcase": "^4.3.0",
+    "lodash.includes": "^4.3.0",
     "lodash.kebabcase": "^4.1.1",
     "yeoman-generator": "^1.1.1"
   },
