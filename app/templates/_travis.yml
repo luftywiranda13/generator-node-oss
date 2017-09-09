@@ -9,3 +9,7 @@ before_script: npm run build<% } %><% if (coverage) { %>
 after_success:
   - npm install -g codecov
   - codecov<% } %>
+branches:
+  only:
+    - master
+    - /^greenkeeper/.*$/

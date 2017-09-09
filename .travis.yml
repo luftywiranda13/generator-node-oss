@@ -10,4 +10,6 @@ after_success:
   - codecov
   - semantic-release pre && npm publish && semantic-release post
 branches:
-  except: /^v\d+\.\d+\.\d+$/
+  only:
+    - master
+    - /^greenkeeper/.*$/
