@@ -62,7 +62,7 @@ describe('prompts', () => {
     assert.fileContent('readme.md', /# foo/);
     assert.fileContent(
       'readme.md',
-      '[![npm](https://img.shields.io/npm/v/foo.svg)](https://www.npmjs.com/package/foo)\n[![Travis branch](https://img.shields.io/travis/test/foo/master.svg)](https://travis-ci.org/test/foo)\n[![npm](https://img.shields.io/npm/dm/foo.svg)](https://npm-stat.com/charts.html?package=foo&from=2016-04-01)'
+      '[![Package Version](https://img.shields.io/npm/v/foo.svg)](https://www.npmjs.com/package/foo)\n[![Build Status: Linux](https://img.shields.io/travis/test/foo/master.svg)](https://travis-ci.org/test/foo)\n[![Downloads Status](https://img.shields.io/npm/dm/foo.svg)](https://npm-stat.com/charts.html?package=foo&from=2016-04-01)'
     );
     assert.fileContent('readme.md', /npm install --save foo/);
     assert.fileContent('readme.md', "const foo = require('foo');");
@@ -154,7 +154,7 @@ describe('prompts', () => {
       assert.fileContent('.travis.yml', /codecov/);
       assert.fileContent(
         'readme.md',
-        '[![Codecov branch](https://img.shields.io/codecov/c/github/test/temp/master.svg)](https://codecov.io/gh/test/temp)'
+        '[![Coverage Status](https://img.shields.io/codecov/c/github/test/temp/master.svg)](https://codecov.io/gh/test/temp)'
       );
     });
 
