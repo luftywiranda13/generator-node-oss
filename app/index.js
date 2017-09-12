@@ -4,8 +4,9 @@ const path = require('path');
 
 const Generator = require('yeoman-generator');
 const camelCase = require('lodash.camelcase');
-const kebabCase = require('lodash.kebabcase');
 const includes = require('lodash.includes');
+const kebabCase = require('lodash.kebabcase');
+const makeDir = require('make-dir');
 const commandExists = require('command-exists');
 const findUp = require('find-up');
 
@@ -86,7 +87,7 @@ module.exports = class extends Generator {
 
   configuring() {
     if (path.basename(this.destinationPath()) !== this.props.projectName) {
-      this.spawnCommandSync('mkdir', [this.props.projectName]);
+      makeDir.sync(this.props.projectName);
       this.destinationRoot(this.destinationPath(this.props.projectName));
     }
   }
