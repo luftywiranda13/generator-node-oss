@@ -39,10 +39,10 @@
   },
   "jest": {
     "testEnvironment": "node"<% if (coverage) { %>,
-    "collectCoverage": true<% } %><% if (esnext) { %>,
+    "collectCoverage": true<% if (esnext) { %>,
     "collectCoverageFrom": [
       "src/**/*.js"
-    ]<% } %>
+    ]<% } %><% } %>
   },<% if (prettier) { %>
   "lint-staged": {
     "*.js": [

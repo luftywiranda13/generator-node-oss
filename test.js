@@ -133,7 +133,6 @@ describe('prompts', () => {
       assert.fileContent('package.json', /"babel-plugin-add-module-exports"/);
       assert.fileContent('package.json', /"babel-preset-env"/);
       assert.fileContent('package.json', /"rimraf"/);
-      assert.fileContent('package.json', 'src/**/*.js');
       assert.fileContent('src/index.test.js', "import temp from './';");
       assert.fileContent('.travis.yml', /before_script: npm run build/);
       assert.fileContent('src/index.js', /export default input/);
