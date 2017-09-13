@@ -136,7 +136,6 @@ describe('prompts', () => {
       assert.fileContent('src/index.test.js', "import temp from './';");
       assert.fileContent('.travis.yml', /before_script: npm run build/);
       assert.fileContent('src/index.js', /export default input/);
-      assert.fileContent('readme.md', /import temp from 'temp';/);
     });
 
     test('coverage', async () => {

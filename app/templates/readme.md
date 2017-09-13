@@ -20,9 +20,10 @@ npm install --save <%= projectName %>
 ## Usage
 
 ```js
-<% if (esnext) { %>import <%= camelProject %> from '<%= projectName %>'; %><% } else { %>const <%= camelProject %> = require('<%= projectName %>');<% } %>
+const <%= camelProject %> = require('<%= projectName %>');
 
-<%= camelProject %>('some text'); //=> some text
+<%= camelProject %>('some text');
+//=> some text
 ```
 
 ## Related
