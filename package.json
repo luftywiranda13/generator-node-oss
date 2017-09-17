@@ -52,6 +52,9 @@
       "templates",
       "temp"
     ],
+    "watchPathIgnorePatterns": [
+      "<rootDir>/temp/"
+    ],
     "transform": {
       "^.+\\.js$": "async-to-gen"
     }
