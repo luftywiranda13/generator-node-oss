@@ -130,6 +130,7 @@ describe('prompts', () => {
       assert.fileContent('package.json', /"main":/);
       assert.fileContent('package.json', /["dist"]/);
       assert.fileContent('package.json', /"babel-cli"/);
+      assert.fileContent('package.json', /"babel-jest"/);
       assert.fileContent('package.json', /"babel-plugin-add-module-exports"/);
       assert.fileContent('package.json', /"babel-preset-env"/);
       assert.fileContent('package.json', /"rimraf"/);
