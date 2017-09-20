@@ -1,7 +1,6 @@
 'use strict';
 
 const path = require('path');
-
 const Generator = require('yeoman-generator');
 const _ = require('lodash');
 const commandExists = require('command-exists');
@@ -150,7 +149,10 @@ module.exports = class extends Generator {
       bower: false,
       npm: !hasYarn,
       yarn: hasYarn,
-      callback: this.fs.delete(findUp.sync('.yo-rc.json')),
-    });
+    })
+      .then(() => {
+        this.fs.delete(findUp.sync('.yo-rc.json'));
+      })
+      .catch(() => {});
   }
 };
