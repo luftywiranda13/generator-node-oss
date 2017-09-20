@@ -3,12 +3,10 @@
 const path = require('path');
 
 const Generator = require('yeoman-generator');
-const camelCase = require('lodash.camelcase');
-const includes = require('lodash.includes');
-const kebabCase = require('lodash.kebabcase');
-const makeDir = require('make-dir');
+const _ = require('lodash');
 const commandExists = require('command-exists');
 const findUp = require('find-up');
+const makeDir = require('make-dir');
 
 module.exports = class extends Generator {
   prompting() {
@@ -70,13 +68,13 @@ module.exports = class extends Generator {
       },
     ]).then(answers => {
       this.props = {
-        projectName: kebabCase(answers.projectName),
-        camelProject: camelCase(answers.projectName),
+        projectName: _.kebabCase(answers.projectName),
+        camelProject: _.camelCase(answers.projectName),
         description: answers.description,
-        coverage: includes(answers.extras, 'coverage'),
-        esnext: includes(answers.extras, 'esnext'),
-        prettier: includes(answers.extras, 'prettier'),
-        githubTemplates: includes(answers.extras, 'githubTemplates'),
+        coverage: _.includes(answers.extras, 'coverage'),
+        esnext: _.includes(answers.extras, 'esnext'),
+        prettier: _.includes(answers.extras, 'prettier'),
+        githubTemplates: _.includes(answers.extras, 'githubTemplates'),
         name: answers.name,
         email: answers.email,
         website: answers.website,
