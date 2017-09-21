@@ -145,8 +145,6 @@ module.exports = class extends Generator {
         this.props
       );
     }
-
-    this.spawnCommandSync('git', ['init', '--quiet']);
   }
 
   install() {
@@ -157,9 +155,8 @@ module.exports = class extends Generator {
       npm: !hasYarn,
       yarn: hasYarn,
     })
-      .then(() => {
-        this.fs.delete(findUp.sync('.yo-rc.json'));
-      })
+      .then(() => this.spawnCommandSync('git', ['init', '--quiet']))
+      .then(() => this.fs.delete(findUp.sync('.yo-rc.json')))
       .catch(() => {});
   }
 };
