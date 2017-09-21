@@ -14,26 +14,23 @@ test('destinationRoot', () => {
 });
 
 test('default files', () => {
-  return helpers
-    .run(path.join(__dirname, './app'))
-    .withPrompts({})
-    .then(() => {
-      assert.file([
-        '.git',
-        '.editorconfig',
-        '.gitattributes',
-        '.gitignore',
-        '.travis.yml',
-        'index.js',
-        'license',
-        'package.json',
-        'readme.md',
-        'test.js',
-      ]);
+  return helpers.run(path.join(__dirname, './app')).then(() => {
+    assert.file([
+      '.git',
+      '.editorconfig',
+      '.gitattributes',
+      '.gitignore',
+      '.travis.yml',
+      'index.js',
+      'license',
+      'package.json',
+      'readme.md',
+      'test.js',
+    ]);
 
-      assert.noFile(['.babelrc', 'src/index.js', 'src/index.test.js']);
-      assert.noFile(['.yo-rc.json']);
-    });
+    assert.noFile(['.babelrc', 'src/index.js', 'src/index.test.js']);
+    assert.noFile(['.yo-rc.json']);
+  });
 });
 
 describe('prompts', () => {
@@ -41,31 +38,31 @@ describe('prompts', () => {
     return helpers
       .run(path.join(__dirname, './app'))
       .withPrompts({
-        projectName: 'foo',
-        githubUsername: 'test',
+        githubUsername: 'foo',
+        projectName: 'bar',
       })
       .then(() => {
         assert.jsonFileContent('package.json', {
-          name: 'foo',
-          repository: 'https://github.com/test/foo',
+          name: 'bar',
+          repository: 'https://github.com/foo/bar',
         });
-        assert.fileContent('readme.md', '# foo');
 
         assert.fileContent(
           'readme.md',
-          '[![Package Version](https://img.shields.io/npm/v/foo.svg)](https://www.npmjs.com/package/foo)'
+          '[![Package Version](https://img.shields.io/npm/v/bar.svg)](https://www.npmjs.com/package/bar)'
         );
         assert.fileContent(
           'readme.md',
-          '[![Build Status: Linux](https://img.shields.io/travis/test/foo/master.svg)](https://travis-ci.org/test/foo)'
+          '[![Build Status: Linux](https://img.shields.io/travis/foo/bar/master.svg)](https://travis-ci.org/foo/bar)'
         );
         assert.fileContent(
           'readme.md',
-          '[![Downloads Status](https://img.shields.io/npm/dm/foo.svg)](https://npm-stat.com/charts.html?package=foo&from=2016-04-01)'
+          '[![Downloads Status](https://img.shields.io/npm/dm/bar.svg)](https://npm-stat.com/charts.html?package=bar&from=2016-04-01)'
         );
 
-        assert.fileContent('readme.md', 'npm install --save foo');
-        assert.fileContent('readme.md', "const foo = require('foo');");
+        assert.fileContent('readme.md', '# bar');
+        assert.fileContent('readme.md', 'npm install --save bar');
+        assert.fileContent('readme.md', "const bar = require('bar');");
       });
   });
 
@@ -91,6 +88,7 @@ describe('prompts', () => {
             name: 'foo bar',
           },
         });
+
         assert.fileContent('license', 'foo bar');
         assert.fileContent('readme.md', 'MIT &copy; [foo bar]');
       });
@@ -106,6 +104,7 @@ describe('prompts', () => {
             email: 'foo@bar.com',
           },
         });
+
         assert.fileContent('license', 'foo@bar.com');
       });
   });
@@ -120,6 +119,7 @@ describe('prompts', () => {
             url: 'test.com',
           },
         });
+
         assert.fileContent('readme.md', 'test.com');
       });
   });
@@ -129,8 +129,8 @@ describe('prompts', () => {
       return helpers
         .run(path.join(__dirname, './app'))
         .withPrompts({
-          githubUsername: 'bar',
-          projectName: 'foo',
+          githubUsername: 'foo',
+          projectName: 'bar',
           extras: ['coverage'],
         })
         .then(() => {
@@ -139,12 +139,14 @@ describe('prompts', () => {
               collectCoverage: true,
             },
           });
+
           assert.fileContent('.travis.yml', 'after_success:');
           assert.fileContent('.travis.yml', 'npm install -g codecov');
           assert.fileContent('.travis.yml', 'codecov');
+
           assert.fileContent(
             'readme.md',
-            '[![Coverage Status](https://img.shields.io/codecov/c/github/bar/foo/master.svg)](https://codecov.io/gh/bar/foo)'
+            '[![Coverage Status](https://img.shields.io/codecov/c/github/foo/bar/master.svg)](https://codecov.io/gh/foo/bar)'
           );
         });
     });
@@ -179,6 +181,7 @@ describe('prompts', () => {
 
           assert.fileContent('.gitignore', 'dist');
           assert.fileContent('.travis.yml', 'before_script: npm run build');
+
           assert.jsonFileContent('package.json', {
             scripts: {
               prebuild: 'rimraf dist',
@@ -202,22 +205,22 @@ describe('prompts', () => {
       return helpers
         .run(path.join(__dirname, './app'))
         .withPrompts({
-          projectName: 'foo',
-          email: 'test@test.com',
-          githubUsername: 'test',
+          githubUsername: 'foo',
+          projectName: 'bar',
+          email: 'foo@test.com',
           extras: ['githubTemplates'],
         })
         .then(() => {
-          assert.fileContent('contributing.md', 'https://github.com/test/foo');
+          assert.fileContent('contributing.md', 'https://github.com/foo/bar');
           assert.fileContent(
             '.github/issue_template.md',
-            /foo version: <!-- run `npm ls foo` -->/
+            /bar version: <!-- run `npm ls bar` -->/
           );
           assert.fileContent(
             '.github/pull_request_template.md',
-            'https://github.com/test/foo/blob/master/contributing.md'
+            'https://github.com/foo/bar/blob/master/contributing.md'
           );
-          assert.fileContent('other/code_of_conduct.md', 'test@test.com');
+          assert.fileContent('other/code_of_conduct.md', 'foo@test.com');
         });
     });
   });
