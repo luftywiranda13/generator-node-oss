@@ -14,8 +14,6 @@
     "node": ">=4"
   },
   "scripts": {
-    "contributors:add": "all-contributors add",
-    "contributors:generate": "all-contributors generate",
     "precommit": "remove-lockfiles && xo --fix && lint-staged",
     "test": "xo && jest"
   },
@@ -30,7 +28,6 @@
     "yeoman-generator": "^2.0.0"
   },
   "devDependencies": {
-    "all-contributors-cli": "^4.4.0",
     "eslint-config-prettier": "^2.5.0",
     "husky": "^0.14.3",
     "jest": "^21.1.0",
@@ -67,6 +64,7 @@
     "yeoman-generator",
     "yeoman",
     "generator",
+    "generator-node",
     "automate",
     "automated",
     "easy",

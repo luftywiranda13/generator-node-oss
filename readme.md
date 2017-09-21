@@ -44,17 +44,6 @@ Read how to do it [here](https://stackoverflow.com/a/18500003).
 - [generator-bunny](https://github.com/luftywiranda13/generator-bunny) - Supports ES2015+ and [Flow](https://flow.org) by default
 - [generator-nm](https://github.com/sindresorhus/generator-nm) - A simpler Yeoman generator
 
-## Contributors
-
-Thanks goes to these people ([emoji key](https://github.com/kentcdodds/all-contributors#emoji-key)):
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-| [<img src="https://avatars0.githubusercontent.com/u/22868432?v=4" width="100px;"/><br /><sub>Lufty Wiranda</sub>](http://instagram.com/luftywiranda13)<br />[💻](https://github.com/luftywiranda13/generator-node-oss/commits?author=luftywiranda13 "Code") [📖](https://github.com/luftywiranda13/generator-node-oss/commits?author=luftywiranda13 "Documentation") [🚇](#infra-luftywiranda13 "Infrastructure (Hosting, Build-Tools, etc)") |
-| :---: |
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-
-This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification. Contributions of any kind welcome!
-
 ## License
 
 MIT &copy; [Lufty Wiranda](https://www.instagram.com/luftywiranda13)
