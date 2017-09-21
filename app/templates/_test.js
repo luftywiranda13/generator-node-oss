@@ -3,6 +3,6 @@
 const <%= camelProject %> = require('./');<% } %>
 
 test('output', () => {
-  expect(<%= camelProject %>('🐰')).toEqual('👉 🐰 👈');
+  expect(<%= camelProject %>('🐰')).toEqual('🐰');
   expect(<%= camelProject %>()).toEqual('No args passed!');
 });

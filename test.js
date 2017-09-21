@@ -197,7 +197,10 @@ describe('prompts', () => {
           assert.fileContent('package.json', 'rimraf');
 
           assert.fileContent('src/index.test.js', "import foo from './';");
-          assert.fileContent('src/index.js', 'export default input');
+          assert.fileContent(
+            'src/index.js',
+            "export default (input = 'No args passed!')"
+          );
         });
     });
 
