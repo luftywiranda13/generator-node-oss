@@ -40,9 +40,9 @@ Read how to do it [here](https://stackoverflow.com/a/18500003).
 
 ## Related
 
-- [generator-kcd-oss](https://github.com/kentcdodds/generator-kcd-oss) - More features but many things left untouched
 - [generator-bunny](https://github.com/luftywiranda13/generator-bunny) - Supports ES2015+ and [Flow](https://flow.org) by default
-- [generator-nm](https://github.com/sindresorhus/generator-nm) - A simpler Yeoman generator
+- [generator-kcd-oss](https://github.com/kentcdodds/generator-kcd-oss) - Lots of features but many things left untouched
+- [generator-nm](https://github.com/sindresorhus/generator-nm) - A way simpler Yeoman generator
 
 ## License
 
