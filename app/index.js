@@ -14,6 +14,7 @@ module.exports = class extends Generator {
         name: 'projectName',
         message: 'Project name',
         default: this.appname,
+        filter: _.kebabCase,
       },
       {
         name: 'description',
@@ -50,13 +51,13 @@ module.exports = class extends Generator {
         name: 'name',
         message: "Author's name",
         default: this.user.git.name(),
-        filter: _.trim
+        filter: _.trim,
       },
       {
         name: 'email',
         message: "Author's email",
         default: this.user.git.email(),
-        filter: _.trim
+        filter: _.trim,
       },
       {
         name: 'website',
@@ -72,7 +73,7 @@ module.exports = class extends Generator {
       },
     ]).then(answers => {
       this.props = {
-        projectName: _.kebabCase(answers.projectName),
+        projectName: answers.projectName,
         camelProject: _.camelCase(answers.projectName),
         description: answers.description,
         coverage: _.includes(answers.extras, 'coverage'),
