@@ -142,6 +142,7 @@ module.exports = class extends Generator {
 
     this.spawnCommandSync('git', ['init', '--quiet']);
   }
+
   install() {
     const hasYarn = commandExists.sync('yarn');
 
