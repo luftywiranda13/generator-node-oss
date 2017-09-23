@@ -46,7 +46,7 @@
   },<% if (prettier) { %>
   "lint-staged": {
     "*.js": [
-      "prettier --single-quote --trailing-comma es5 --write",
+      "prettier --single-quote --trailing-comma <% if (esnext) { %>all<% } else { %>es5<% } %> --write",
       "git add"
     ]
   },<% } %>
