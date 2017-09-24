@@ -180,12 +180,12 @@ describe('prompts', () => {
           assert.noFile(['index.js', 'test.js']);
 
           assert.fileContent('.gitignore', 'dist');
-          assert.fileContent('.travis.yml', 'before_script: npm run build');
 
           assert.jsonFileContent('package.json', {
             scripts: {
               prebuild: 'rimraf dist',
               build: 'babel src --out-dir dist --copy-files --ignore *.test.js',
+              pretest: 'npm run build',
             },
             main: 'dist/index.js',
             files: ['dist'],
