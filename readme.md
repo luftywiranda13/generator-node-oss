@@ -8,7 +8,7 @@
 
 This [Yeoman](http://yeoman.io) generator helps you to create a Node.js project with ease.
 
-## Why?
+## Why
 
 - Generates a simple but *ready to start* project
 - No locked-in, unneeded things can be removed easily
@@ -34,7 +34,7 @@ yo node-oss
 
 ## FAQ
 
-#### How to upgrade existing project scaffolded with Yeoman?
+### How to upgrade existing project scaffolded with Yeoman?
 
 Read how to do it [here](https://stackoverflow.com/a/18500003).
 
