@@ -7,7 +7,7 @@
 
 <%= description %>
 
-## Why?
+## Why
 
 // TODO
 
