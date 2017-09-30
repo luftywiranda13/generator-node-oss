@@ -2,7 +2,6 @@
 
 [![Package Version](https://img.shields.io/npm/v/generator-node-oss.svg)](https://www.npmjs.com/package/generator-node-oss)
 [![Build Status: Linux](https://img.shields.io/travis/luftywiranda13/generator-node-oss/master.svg)](https://travis-ci.org/luftywiranda13/generator-node-oss)
-[![Build Status: Windows](https://img.shields.io/appveyor/ci/luftywiranda13/generator-node-oss/master.svg)](https://ci.appveyor.com/project/luftywiranda13/generator-node-oss)
 [![Coverage Status](https://img.shields.io/codecov/c/github/luftywiranda13/generator-node-oss/master.svg)](https://codecov.io/gh/luftywiranda13/generator-node-oss)
 [![Downloads Status](https://img.shields.io/npm/dm/generator-node-oss.svg)](https://npm-stat.com/charts.html?package=generator-node-oss&from=2016-04-01)
 
