@@ -13,7 +13,7 @@ module.exports = class extends Generator {
       {
         name: 'projectName',
         message: 'Project name',
-        default: this.appname,
+        default: _.kebabCase(this.appname),
         filter: _.kebabCase,
       },
       {
