@@ -3,6 +3,7 @@
 const path = require('path');
 const Generator = require('yeoman-generator');
 const _ = require('lodash');
+const chalk = require('chalk');
 const commandExists = require('command-exists');
 const findUp = require('find-up');
 const makeDir = require('make-dir');
@@ -89,9 +90,11 @@ module.exports = class extends Generator {
   }
 
   configuring() {
-    if (path.basename(this.destinationPath()) !== this.props.projectName) {
-      makeDir.sync(this.props.projectName);
-      this.destinationRoot(this.destinationPath(this.props.projectName));
+    if (path.basename(this.destinationRoot()) !== this.props.projectName) {
+      return makeDir(this.props.projectName).then(path => {
+        this.destinationRoot(path);
+        this.log(`\nGenerating a new project in ${chalk.green(path)}\n`);
+      });
     }
   }
 
