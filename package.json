@@ -21,19 +21,19 @@
     "app"
   ],
   "dependencies": {
-    "chalk": "^2.1.0",
+    "chalk": "^2.3.0",
     "command-exists": "^1.2.2",
     "find-up": "^2.1.0",
     "lodash": "^4.17.4",
-    "make-dir": "^1.0.0",
+    "make-dir": "^1.1.0",
     "yeoman-generator": "^2.0.0"
   },
   "devDependencies": {
-    "eslint-config-prettier": "^2.6.0",
+    "eslint-config-prettier": "^2.7.0",
     "husky": "^0.14.3",
     "jest": "^21.2.1",
-    "lint-staged": "^4.2.3",
-    "prettier": "^1.7.2",
+    "lint-staged": "^5.0.0",
+    "prettier": "^1.8.2",
     "remove-lockfiles": "^1.4.0",
     "xo": "^0.18.2",
     "yeoman-assert": "^3.1.0",
