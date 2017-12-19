@@ -26,15 +26,15 @@
     "find-up": "^2.1.0",
     "lodash": "^4.17.4",
     "make-dir": "^1.1.0",
-    "yeoman-generator": "^2.0.0"
+    "yeoman-generator": "^2.0.1"
   },
   "devDependencies": {
-    "eslint-config-prettier": "^2.7.0",
+    "eslint-config-prettier": "^2.9.0",
     "husky": "^0.14.3",
-    "jest": "^21.2.1",
-    "lint-staged": "^5.0.0",
-    "prettier": "^1.8.2",
-    "remove-lockfiles": "^1.4.0",
+    "jest": "^22.0.4",
+    "lint-staged": "^6.0.0",
+    "prettier": "^1.9.2",
+    "remove-lockfiles": "^1.4.2",
     "xo": "^0.18.2",
     "yeoman-assert": "^3.1.0",
     "yeoman-test": "^1.7.0"
@@ -49,6 +49,10 @@
   "lint-staged": {
     "{test.js,app/*.js,!app/templates/**}": [
       "prettier --single-quote --trailing-comma es5 --write",
+      "git add"
+    ],
+    "*.md": [
+      "prettier --write",
       "git add"
     ]
   },
