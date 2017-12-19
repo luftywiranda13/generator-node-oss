@@ -9,15 +9,15 @@ This [Yeoman](http://yeoman.io) generator helps you to create a Node.js project 
 
 ## Why
 
-- Generates a simple but *ready to start* project
-- No lock-in, unneeded things can be removed easily
-- Shows repo quality through helpful badges
-- [Jest testing framework](https://facebook.github.io/jest)
-- Sensible [ESLint](http://eslint.org) config bundled in [XO](https://github.com/sindresorhus/xo)
-- [Travis CI configuration](https://travis-ci.org)
-- [Automated code reformatting using Prettier](https://github.com/prettier/prettier) *(optional)*
-- [Issue, Pull Request, and Contributing guideline templates](https://github.com/blog/2111-issue-and-pull-request-templates) *(optional)*
-- [Supports ES2015+ using Babel](https://babeljs.io) *(optional)*
+* Generates a simple but _ready to start_ project
+* No lock-in, unneeded things can be removed easily
+* Shows repo quality through helpful badges
+* [Jest testing framework](https://facebook.github.io/jest)
+* Sensible [ESLint](http://eslint.org) config bundled in [XO](https://github.com/sindresorhus/xo)
+* [Travis CI configuration](https://travis-ci.org)
+* [Automated code reformatting using Prettier](https://github.com/prettier/prettier) _(optional)_
+* [Issue, Pull Request, and Contributing guideline templates](https://github.com/blog/2111-issue-and-pull-request-templates) _(optional)_
+* [Supports ES2015+ using Babel](https://babeljs.io) _(optional)_
 
 ## Installation
 
@@ -39,9 +39,9 @@ Read how to do it [here](https://stackoverflow.com/a/18500003).
 
 ## Related
 
-- [generator-bunny](https://github.com/luftywiranda13/generator-bunny) － Supports ES2015+ and [Flow](https://flow.org) by default
-- [generator-kcd-oss](https://github.com/kentcdodds/generator-kcd-oss) － Lots of features but many things left untouched
-- [generator-nm](https://github.com/sindresorhus/generator-nm) － A way simpler Yeoman generator
+* [generator-bunny](https://github.com/luftywiranda13/generator-bunny) － Supports ES2015+ and [Flow](https://flow.org) by default
+* [generator-kcd-oss](https://github.com/kentcdodds/generator-kcd-oss) － Lots of features but many things left untouched
+* [generator-nm](https://github.com/sindresorhus/generator-nm) － A way simpler Yeoman generator
 
 ## License
 
