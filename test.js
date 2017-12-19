@@ -159,7 +159,12 @@ describe('prompts', () => {
           assert.fileContent('package.json', 'eslint-config-prettier');
           assert.jsonFileContent('package.json', {
             'lint-staged': {
-              '*.js': ['prettier --single-quote --trailing-comma es5 --write'],
+              '*.js': ['prettier --write'],
+              '*.md': ['prettier --write'],
+            },
+            prettier: {
+              singleQuote: true,
+              trailingComma: 'es5',
             },
             xo: {
               extends: 'prettier',

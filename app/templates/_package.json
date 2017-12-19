@@ -47,13 +47,17 @@
   },<% if (prettier) { %>
   "lint-staged": {
     "*.js": [
-      "prettier --single-quote --trailing-comma <% if (esnext) { %>all<% } else { %>es5<% } %> --write",
+      "prettier --write",
       "git add"
     ],
     "*.md": [
       "prettier --write",
       "git add"
     ]
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": <% if (esnext) { %>"all"<% } else { %>"es5"<% } %>
   },<% } %>
   "xo": {<% if (prettier) { %>
     "extends": "prettier",<% } else { %>

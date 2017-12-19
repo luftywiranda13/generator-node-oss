@@ -47,14 +47,18 @@
     ]
   },
   "lint-staged": {
-    "{test.js,app/*.js,!app/templates/**}": [
-      "prettier --single-quote --trailing-comma es5 --write",
+    "*.js": [
+      "prettier --write",
       "git add"
     ],
     "*.md": [
       "prettier --write",
       "git add"
     ]
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "es5"
   },
   "xo": {
     "extends": "prettier",
