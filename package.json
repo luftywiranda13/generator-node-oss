@@ -15,6 +15,7 @@
   },
   "scripts": {
     "precommit": "remove-lockfiles && xo --fix && lint-staged",
+    "semantic-release": "semantic-release",
     "test": "xo && jest"
   },
   "files": [
@@ -37,7 +38,8 @@
     "remove-lockfiles": "^1.4.2",
     "xo": "^0.18.2",
     "yeoman-assert": "^3.1.0",
-    "yeoman-test": "^1.7.0"
+    "yeoman-test": "^1.7.0",
+    "semantic-release": "^11.0.2"
   },
   "jest": {
     "testEnvironment": "node",
