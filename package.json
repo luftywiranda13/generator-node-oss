@@ -14,9 +14,11 @@
     "node": ">=4"
   },
   "scripts": {
+    "lint": "xo",
     "precommit": "remove-lockfiles && xo --fix && lint-staged",
     "semantic-release": "semantic-release",
-    "test": "xo && jest"
+    "pretest": "npm run lint",
+    "test": "jest --coverage"
   },
   "files": [
     "app"
@@ -42,11 +44,7 @@
     "semantic-release": "^11.0.2"
   },
   "jest": {
-    "testEnvironment": "node",
-    "collectCoverage": true,
-    "testPathIgnorePatterns": [
-      "<rootDir>/app/templates/"
-    ]
+    "testEnvironment": "node"
   },
   "lint-staged": {
     "*.js": [
