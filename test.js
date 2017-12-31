@@ -28,8 +28,13 @@ test('default files', () => {
       'test.js',
     ]);
 
-    assert.noFile(['.babelrc', 'src/index.js', 'src/index.test.js']);
-    assert.noFile(['.yo-rc.json']);
+    assert.noFile([
+      '.babelrc',
+      '.prettierignore',
+      '.yo-rc.json',
+      'src/index.js',
+      'src/index.test.js',
+    ]);
   });
 });
 
@@ -157,6 +162,7 @@ describe('prompts', () => {
         .withPrompts({ extras: ['prettier'] })
         .then(() => {
           assert.fileContent('package.json', 'eslint-config-prettier');
+          assert.file('.prettierignore');
           assert.jsonFileContent('package.json', {
             'lint-staged': {
               '*.js': ['prettier --write'],

@@ -104,6 +104,7 @@ module.exports = class extends Generator {
         `${this.templatePath()}/**`,
         '!**/_babelrc',
         '!**/_github/**',
+        '!**/_prettierignore',
         '!**/contributing.md',
         '!**/other/**',
       ],
@@ -121,6 +122,13 @@ module.exports = class extends Generator {
     mv('_package.json', 'package.json');
     mv('_test.js', 'test.js');
     mv('_travis.yml', '.travis.yml');
+
+    if (this.props.prettier) {
+      this.fs.copy(
+        this.templatePath('_prettierignore'),
+        this.destinationPath('.prettierignore')
+      );
+    }
 
     if (this.props.esnext) {
       mv('index.js', 'src/index.js');
