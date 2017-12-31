@@ -9,9 +9,7 @@ script:
   - npm run lint
   - npm run test<% if (esnext) { %>
   - npm run build<% } %><% if (coverage) { %>
-after_success:
-  - npm install -g codecov
-  - codecov<% } %>
+after_success: if [[ `npm -v` > 4* ]]; then npx codecov; fi<% } %>
 branches:
   only:
     - master

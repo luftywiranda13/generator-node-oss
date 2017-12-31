@@ -145,9 +145,10 @@ describe('prompts', () => {
             },
           });
 
-          assert.fileContent('.travis.yml', 'after_success:');
-          assert.fileContent('.travis.yml', 'npm install -g codecov');
-          assert.fileContent('.travis.yml', 'codecov');
+          assert.fileContent(
+            '.travis.yml',
+            'after_success: if [[ `npm -v` > 4* ]]; then npx codecov; fi'
+          );
 
           assert.fileContent(
             'readme.md',
