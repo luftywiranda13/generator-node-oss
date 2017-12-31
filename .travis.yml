@@ -5,6 +5,9 @@ node_js:
   - '8'
   - '6'
   - '4'
+script:
+  - npm run lint
+  - npm run test
 after_success:
   - if [[ `npm -v` > 4* ]]; then npx codecov; fi
   - npm run semantic-release

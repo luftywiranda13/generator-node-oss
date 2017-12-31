@@ -135,8 +135,8 @@ describe('prompts', () => {
         })
         .then(() => {
           assert.jsonFileContent('package.json', {
-            jest: {
-              collectCoverage: true,
+            scripts: {
+              test: 'jest --coverage',
             },
           });
 
@@ -190,7 +190,6 @@ describe('prompts', () => {
             scripts: {
               prebuild: 'rimraf dist',
               build: 'babel src --out-dir dist --copy-files --ignore *.test.js',
-              pretest: 'npm run build',
             },
             main: 'dist/index.js',
             files: ['dist'],
@@ -200,6 +199,8 @@ describe('prompts', () => {
           assert.fileContent('package.json', 'babel-plugin-add-module-exports');
           assert.fileContent('package.json', 'babel-preset-env');
           assert.fileContent('package.json', 'rimraf');
+
+          assert.fileContent('.travis.yml', /npm run build/);
 
           assert.fileContent('src/index.test.js', "import foo from './';");
           assert.fileContent(

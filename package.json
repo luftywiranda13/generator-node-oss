@@ -17,7 +17,7 @@
     "lint": "xo",
     "precommit": "remove-lockfiles && xo --fix && lint-staged",
     "semantic-release": "semantic-release",
-    "pretest": "npm run lint",
+    "test:watch": "jest --watch",
     "test": "jest --coverage"
   },
   "files": [
