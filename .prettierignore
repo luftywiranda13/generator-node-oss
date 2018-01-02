@@ -1,4 +1,6 @@
 app/templates/**/*.js
+app/templates/**/*.json
+app/templates/**/*.md
 coverage
 node_modules
 package.json

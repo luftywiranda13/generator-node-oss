@@ -166,8 +166,7 @@ describe('prompts', () => {
           assert.file('.prettierignore');
           assert.jsonFileContent('package.json', {
             'lint-staged': {
-              '*.js': ['prettier --write'],
-              '*.md': ['prettier --write'],
+              '*.{js,json,md}': ['prettier --write'],
             },
             prettier: {
               singleQuote: true,
