@@ -16,7 +16,6 @@
   "scripts": {
     "lint": "xo",
     "precommit": "remove-lockfiles && xo --fix && lint-staged",
-    "semantic-release": "semantic-release",
     "test:watch": "jest --watch",
     "test": "jest --coverage"
   },
@@ -40,7 +39,6 @@
     "lint-staged": "^6.0.0",
     "prettier": "^1.9.2",
     "remove-lockfiles": "^1.4.2",
-    "semantic-release": "^11.0.2",
     "xo": "^0.18.2",
     "yeoman-assert": "^3.1.0",
     "yeoman-test": "^1.7.0"

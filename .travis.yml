@@ -11,7 +11,8 @@ script:
   - npm run test
 after_success:
   - if [[ `npm -v` > 4* ]]; then npx codecov; fi
-  - npm run semantic-release
+  - npm install -g semantic-release@11
+  - semantic-release
 branches:
   only:
     - master
