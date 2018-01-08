@@ -10,7 +10,7 @@
     "url": "<%= website %>"
   },
   "engines": {
-    "node": ">=4"
+    "node": ">=6"
   },
   "scripts": {
     "precommit": "remove-lockfiles<% if (prettier) { %> && xo --fix && lint-staged<% } %>",<% if (esnext) { %>
