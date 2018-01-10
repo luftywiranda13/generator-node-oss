@@ -31,6 +31,24 @@ npm install --global yo generator-node-oss
 yo node-oss
 ```
 
+With the most basic options, youʼll get a project structured like this:
+
+```sh
+$ tree
+.
+├── .editorconfig
+├── .gitattributes
+├── .gitignore
+├── .travis.yml
+├── index.js
+├── license
+├── package.json
+├── readme.md
+└── test.js
+```
+
+Less boilerplate 🎉
+
 ## FAQ
 
 ### How to upgrade existing project scaffolded with Yeoman?
