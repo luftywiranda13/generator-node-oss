@@ -35,7 +35,7 @@
     "jest": "^22.0.4",<% if (prettier) { %>
     "lint-staged": "^6.0.0",
     "prettier": "^1.9.2",<% } %>
-    "remove-lockfiles": "^1.4.2",<% if (esnext) { %>
+    "remove-lockfiles": "^2.0.4",<% if (esnext) { %>
     "rimraf": "^2.6.2",<% } %>
     "xo": "^0.18.2"
   },
