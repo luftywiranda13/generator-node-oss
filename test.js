@@ -54,15 +54,15 @@ describe('prompts', () => {
 
         assert.fileContent(
           'readme.md',
-          '[![Package Version](https://img.shields.io/npm/v/bar.svg)](https://www.npmjs.com/package/bar)'
+          '[![Package Version](https://img.shields.io/npm/v/bar.svg?style=flat-square)](https://www.npmjs.com/package/bar)'
         );
         assert.fileContent(
           'readme.md',
-          '[![Build Status: Linux](https://img.shields.io/travis/foo/bar/master.svg)](https://travis-ci.org/foo/bar)'
+          '[![Build Status: Linux](https://img.shields.io/travis/foo/bar/master.svg?style=flat-square)](https://travis-ci.org/foo/bar)'
         );
         assert.fileContent(
           'readme.md',
-          '[![Downloads Status](https://img.shields.io/npm/dm/bar.svg)](https://npm-stat.com/charts.html?package=bar&from=2016-04-01)'
+          '[![Downloads Status](https://img.shields.io/npm/dm/bar.svg?style=flat-square)](https://npm-stat.com/charts.html?package=bar&from=2016-04-01)'
         );
 
         assert.fileContent('readme.md', '# bar');
@@ -152,7 +152,7 @@ describe('prompts', () => {
 
           assert.fileContent(
             'readme.md',
-            '[![Coverage Status](https://img.shields.io/codecov/c/github/foo/bar/master.svg)](https://codecov.io/gh/foo/bar)'
+            '[![Coverage Status](https://img.shields.io/codecov/c/github/foo/bar/master.svg?style=flat-square)](https://codecov.io/gh/foo/bar)'
           );
         });
     });
