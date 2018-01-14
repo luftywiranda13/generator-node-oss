@@ -1,6 +1,6 @@
 # generator-node-oss
 
-> Create a Node.js project with ease.
+> Create a Node.js project with ease
 
 [![Package Version](https://img.shields.io/npm/v/generator-node-oss.svg?style=flat-square)](https://www.npmjs.com/package/generator-node-oss)
 [![Downloads Status](https://img.shields.io/npm/dm/generator-node-oss.svg?style=flat-square)](https://npm-stat.com/charts.html?package=generator-node-oss&from=2016-04-01)
