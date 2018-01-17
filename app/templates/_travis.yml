@@ -4,8 +4,7 @@ notifications:
 node_js:
   - '8'
   - '6'
-script:
-  - npm run lint<% if (prettier) { %>
+script:<% if (prettier) { %>
   - node node_modules/.bin/prettier -l "*.{js,json,md}"<% } %>
   - npm test<% if (esnext) { %>
   - npm run build<% } %><% if (coverage) { %>

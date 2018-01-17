@@ -14,10 +14,9 @@
     "node": ">=6"
   },
   "scripts": {
-    "lint": "xo",
     "precommit": "remove-lockfiles && xo --fix && lint-staged",
     "test:watch": "jest --watch",
-    "test": "jest --coverage"
+    "test": "xo && jest --coverage"
   },
   "files": [
     "app"

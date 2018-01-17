@@ -16,9 +16,8 @@
     "precommit": "remove-lockfiles<% if (prettier) { %> && xo --fix && lint-staged<% } %>",<% if (esnext) { %>
     "prebuild": "rimraf dist",
     "build": "babel src --out-dir dist --copy-files --ignore *.test.js",<% } %>
-    "lint": "xo",
     "test:watch": "jest --watch",
-    "test": "jest<% if (coverage) { %> --coverage<% } %>"
+    "test": "xo && jest<% if (coverage) { %> --coverage<% } %>"
   },<% if (esnext) { %>
   "main": "dist/index.js",<% } %>
   "files": [

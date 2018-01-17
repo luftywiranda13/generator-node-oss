@@ -141,7 +141,7 @@ describe('prompts', () => {
         .then(() => {
           assert.jsonFileContent('package.json', {
             scripts: {
-              test: 'jest --coverage',
+              test: 'xo && jest --coverage',
             },
           });
 
