@@ -24,8 +24,8 @@
     "<% if (esnext) { %>dist<% } else { %>index.js<% } %>"
   ],
   "dependencies": {},
-  "devDependencies": {
-    "async-to-gen": "^1.3.3",<% if (esnext) { %>
+  "devDependencies": {<% if (!esnext) { %>
+    "async-to-gen": "^1.3.3",<% } %><% if (esnext) { %>
     "babel-cli": "^6.26.0",
     "babel-jest": "^22.0.4",
     "babel-plugin-add-module-exports": "^0.2.1",
@@ -42,7 +42,7 @@
   "jest": {
     "testEnvironment": "node",
     "transform": {
-      "^.+\\.js$": "async-to-gen"
+      "^.+\\.js$": "<% if (esnext) { %>babel-jest<% } else { %>async-to-gen<% } %>"
     }<% if (esnext) { %>,
     "collectCoverageFrom": [
       "src/**/*.js"
