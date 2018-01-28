@@ -165,7 +165,7 @@ describe('prompts', () => {
           assert.fileContent('package.json', 'eslint-config-prettier');
           assert.fileContent(
             '.travis.yml',
-            'node node_modules/.bin/prettier -l "*.{js,json,md}"'
+            'node node_modules/.bin/prettier -l "**/*.{js,json,md}"'
           );
           assert.file('.prettierignore');
           assert.jsonFileContent('package.json', {
