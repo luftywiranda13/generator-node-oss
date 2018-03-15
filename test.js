@@ -20,6 +20,7 @@ test('default files', () => {
       '.editorconfig',
       '.gitattributes',
       '.gitignore',
+      '.prettierignore',
       '.travis.yml',
       'index.js',
       'license',
@@ -30,7 +31,6 @@ test('default files', () => {
 
     assert.noFile([
       '.babelrc',
-      '.prettierignore',
       '.yo-rc.json',
       'src/index.js',
       'src/index.test.js',
@@ -154,32 +154,6 @@ describe('prompts', () => {
             'readme.md',
             '[![Coverage Status](https://img.shields.io/codecov/c/github/foo/bar/master.svg?style=flat-square)](https://codecov.io/gh/foo/bar)'
           );
-        });
-    });
-
-    test('prettier', () => {
-      return helpers
-        .run(path.join(__dirname, './app'))
-        .withPrompts({ extras: ['prettier'] })
-        .then(() => {
-          assert.fileContent('package.json', 'eslint-config-prettier');
-          assert.fileContent(
-            '.travis.yml',
-            'node node_modules/.bin/prettier -l "**/*.{js,json,md}"'
-          );
-          assert.file('.prettierignore');
-          assert.jsonFileContent('package.json', {
-            'lint-staged': {
-              '*.{js,json,md}': ['prettier --write'],
-            },
-            prettier: {
-              singleQuote: true,
-              trailingComma: 'es5',
-            },
-            xo: {
-              extends: 'prettier',
-            },
-          });
         });
     });
 

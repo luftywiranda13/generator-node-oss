@@ -13,7 +13,7 @@
     "node": ">=6"
   },
   "scripts": {
-    "precommit": "remove-lockfiles<% if (prettier) { %> && xo --fix && lint-staged<% } %>",<% if (esnext) { %>
+    "precommit": "remove-lockfiles && lint-staged",<% if (esnext) { %>
     "prebuild": "rimraf dist",
     "build": "babel src --out-dir dist --copy-files --ignore *.test.js",<% } %>
     "test:watch": "jest --watch",
@@ -29,12 +29,10 @@
     "babel-cli": "^6.26.0",
     "babel-jest": "^22.0.4",
     "babel-plugin-add-module-exports": "^0.2.1",
-    "babel-preset-env": "^1.6.1",<% } %><% if (prettier) { %>
-    "eslint-config-prettier": "^2.9.0",<% } %>
+    "babel-preset-env": "^1.6.1",<% } %>
     "husky": "^0.14.3",
-    "jest": "^22.0.4",<% if (prettier) { %>
+    "jest": "^22.0.4",
     "lint-staged": "^6.0.0",
-    "prettier": "^1.9.2",<% } %>
     "remove-lockfiles": "^2.0.4",<% if (esnext) { %>
     "rimraf": "^2.6.2",<% } %>
     "xo": "^0.18.2"
@@ -47,23 +45,23 @@
     "collectCoverageFrom": [
       "src/**/*.js"
     ]<% } %>
-  },<% if (prettier) { %>
+  },
   "lint-staged": {
     "*.{js,json,md}": [
-      "prettier --write",
+      "xo --fix",
       "git add"
     ]
   },
   "prettier": {
+    "bracketSpacing": true,
     "singleQuote": true,
-    "trailingComma": <% if (esnext) { %>"all"<% } else { %>"es5"<% } %>
-  },<% } %>
-  "xo": {<% if (prettier) { %>
-    "extends": "prettier",<% } else { %>
-    "space": true,<% } %>
+    "useTabs": false
+  },
+  "xo": {
     "envs": [
       "jest"
-    ]
+    ],
+    "prettier": true
   },
   "keywords": []
 }

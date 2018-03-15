@@ -14,8 +14,8 @@
 * Monitors repo quality through helpful badges
 * [Jest testing framework](https://facebook.github.io/jest)
 * Sensible [ESLint](http://eslint.org) config bundled in [XO](https://github.com/sindresorhus/xo)
+* Automates code reformatting using [Prettier](https://github.com/prettier/prettier)
 * [Travis CI](https://travis-ci.org) configuration
-* Automates code reformatting using [Prettier](https://github.com/prettier/prettier) _(optional)_
 * [Issue, Pull Request, and Contributing templates](https://github.com/blog/2111-issue-and-pull-request-templates) _(optional)_
 * [Supports ES2015+ using Babel](https://babeljs.io) _(optional)_
 

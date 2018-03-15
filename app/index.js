@@ -36,10 +36,6 @@ module.exports = class extends Generator {
             checked: true,
           },
           {
-            name: 'Auto-formatting with Prettier',
-            value: 'prettier',
-          },
-          {
             name: 'ESNext with Babel',
             value: 'esnext',
           },
@@ -76,7 +72,6 @@ module.exports = class extends Generator {
         description: answers.description,
         coverage: includes(answers.extras, 'coverage'),
         esnext: includes(answers.extras, 'esnext'),
-        prettier: includes(answers.extras, 'prettier'),
         githubTemplates: includes(answers.extras, 'githubTemplates'),
         name: answers.name,
         email: answers.email,
@@ -101,7 +96,6 @@ module.exports = class extends Generator {
         `${this.templatePath()}/**`,
         '!**/_babelrc',
         '!**/_github/**',
-        '!**/_prettierignore',
         '!**/contributing.md',
         '!**/other/**',
       ],
@@ -117,15 +111,9 @@ module.exports = class extends Generator {
     mv('_gitattributes', '.gitattributes');
     mv('_gitignore', '.gitignore');
     mv('_package.json', 'package.json');
+    mv('_prettierignore', '.prettierignore');
     mv('_test.js', 'test.js');
     mv('_travis.yml', '.travis.yml');
-
-    if (this.props.prettier) {
-      this.fs.copy(
-        this.templatePath('_prettierignore'),
-        this.destinationPath('.prettierignore')
-      );
-    }
 
     if (this.props.esnext) {
       mv('index.js', 'src/index.js');

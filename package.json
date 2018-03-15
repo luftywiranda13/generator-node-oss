@@ -14,7 +14,7 @@
     "node": ">=6"
   },
   "scripts": {
-    "precommit": "remove-lockfiles && xo --fix && lint-staged",
+    "precommit": "remove-lockfiles && lint-staged",
     "test:watch": "jest --watch",
     "test": "xo && jest --coverage"
   },
@@ -32,13 +32,11 @@
     "yeoman-generator": "^2.0.1"
   },
   "devDependencies": {
-    "eslint-config-prettier": "^2.9.0",
     "husky": "^0.14.3",
     "jest": "^22.0.4",
     "lint-staged": "^7.0.0",
-    "prettier": "^1.9.2",
     "remove-lockfiles": "^2.0.4",
-    "xo": "^0.18.2",
+    "xo": "^0.20.0",
     "yeoman-assert": "^3.1.0",
     "yeoman-test": "^1.7.0"
   },
@@ -46,23 +44,28 @@
     "testEnvironment": "node"
   },
   "lint-staged": {
-    "*.{js,json,md}": [
+    "*.js": [
+      "xo --fix",
+      "git add"
+    ],
+    "*.{json,md}": [
       "prettier --write",
       "git add"
     ]
   },
   "prettier": {
+    "bracketSpacing": true,
     "singleQuote": true,
-    "trailingComma": "es5"
+    "useTabs": false
   },
   "xo": {
-    "extends": "prettier",
     "envs": [
       "jest"
     ],
     "ignores": [
       "app/templates/**"
-    ]
+    ],
+    "prettier": true
   },
   "keywords": [
     "yeoman-generator",
