@@ -32,10 +32,10 @@
     "babel-preset-env": "^1.6.1",<% } %>
     "husky": "^0.14.3",
     "jest": "^22.0.4",
-    "lint-staged": "^6.0.0",
+    "lint-staged": "^7.0.0",
     "remove-lockfiles": "^2.0.4",<% if (esnext) { %>
     "rimraf": "^2.6.2",<% } %>
-    "xo": "^0.18.2"
+    "xo": "^0.20.3"
   },
   "jest": {
     "testEnvironment": "node",
