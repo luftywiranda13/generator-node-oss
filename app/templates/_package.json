@@ -58,14 +58,14 @@
   },
   "prettier": {
     "bracketSpacing": true,
-    "singleQuote": true,
-    "useTabs": false
+    "singleQuote": true
   },
   "xo": {
     "envs": [
       "jest"
     ],
-    "prettier": true
+    "prettier": true,
+    "space": true
   },
   "keywords": []
 }
