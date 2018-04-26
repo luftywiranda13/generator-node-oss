@@ -34,7 +34,7 @@
   "devDependencies": {
     "husky": "^0.14.3",
     "jest": "^22.0.4",
-    "lint-staged": "^7.0.0",
+    "lint-staged": "^7.0.5",
     "remove-lockfiles": "^2.0.4",
     "xo": "^0.20.0",
     "yeoman-assert": "^3.1.0",
