@@ -4,6 +4,7 @@ notifications:
 node_js:
   - '8'
   - '6'
+  - '10'
 after_success:
   - if [[ `npm -v` > 4* ]]; then npx codecov; fi
   - npm install -g semantic-release@11
