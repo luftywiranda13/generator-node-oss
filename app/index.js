@@ -150,9 +150,16 @@ module.exports = class extends Generator {
       bower: false,
       npm: !hasYarn,
       yarn: hasYarn
-    })
-      .then(() => this.spawnCommandSync('git', ['init', '--quiet']))
-      .then(() => this.fs.delete(findUp.sync('.yo-rc.json')))
-      .catch(() => {});
+    });
+  }
+
+  end() {
+    this.spawnCommandSync('git', ['init', '--quiet']);
+
+    findUp('.yo-rc.json').then(res => {
+      if (res) {
+        this.fs.delete(res);
+      }
+    });
   }
 };
