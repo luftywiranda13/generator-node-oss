@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "husky": "^1.2.0",
-    "jest": "^22.0.4",
+    "jest": "^23.6.0",
     "lint-staged": "^8.1.0",
     "remove-lockfiles": "^2.0.4",
     "xo": "^0.23.0",
