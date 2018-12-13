@@ -39,7 +39,7 @@
     "lint-staged": "^8.1.0",
     "remove-lockfiles": "^2.0.4",<% if (esnext) { %>
     "rimraf": "^2.6.2",<% } %>
-    "xo": "^0.20.3"
+    "xo": "^0.23.0"
   },
   "jest": {
     "testEnvironment": "node",

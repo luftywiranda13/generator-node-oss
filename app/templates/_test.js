@@ -1,6 +1,6 @@
 <% if (esnext) { %>import <%= camelProject %> from './';<% } else { %>'use strict';
 
-const <%= camelProject %> = require('./');<% } %>
+const <%= camelProject %> = require('.');<% } %>
 
 test('output', () => {
   expect(<%= camelProject %>('🐰')).toBe('🐰');
