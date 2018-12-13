@@ -12,8 +12,12 @@
   "engines": {
     "node": ">=6"
   },
-  "scripts": {
-    "precommit": "remove-lockfiles && lint-staged",<% if (esnext) { %>
+  "husky": {
+    "hooks": {
+      "pre-commit": "remove-lockfiles && lint-staged"
+    }
+  },
+  "scripts": {<% if (esnext) { %>
     "prebuild": "rimraf dist",
     "build": "babel src --out-dir dist --copy-files --ignore *.test.js",<% } %>
     "test:watch": "jest --watch",
@@ -30,7 +34,7 @@
     "babel-jest": "^22.0.4",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-preset-env": "^1.6.1",<% } %>
-    "husky": "^0.14.3",
+    "husky": "^1.2.0",
     "jest": "^22.0.4",
     "lint-staged": "^7.0.0",
     "remove-lockfiles": "^2.0.4",<% if (esnext) { %>
