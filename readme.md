@@ -9,15 +9,15 @@
 
 ## Why
 
-* Generates a simple but _ready to start_ project
-* Includes only necessary tools
-* Monitors repo quality through helpful badges
-* [Jest testing framework](https://facebook.github.io/jest)
-* Sensible [ESLint](http://eslint.org) config bundled in [XO](https://github.com/sindresorhus/xo)
-* Automates code reformatting using [Prettier](https://github.com/prettier/prettier)
-* [Travis CI](https://travis-ci.org) configuration
-* [Issue, Pull Request, and Contributing templates](https://github.com/blog/2111-issue-and-pull-request-templates) _(optional)_
-* [Supports ES2015+ using Babel](https://babeljs.io) _(optional)_
+- Generates a simple but _ready to start_ project
+- Includes only necessary tools
+- Monitors repo quality through helpful badges
+- [Jest testing framework](https://facebook.github.io/jest)
+- Sensible [ESLint](http://eslint.org) config bundled in [XO](https://github.com/xojs/xo)
+- Automates code reformatting using [Prettier](https://github.com/prettier/prettier)
+- [Travis CI](https://travis-ci.org) configuration
+- [Issue, Pull Request, and Contributing templates](https://github.com/blog/2111-issue-and-pull-request-templates) _(optional)_
+- [Supports ES2015+ using Babel](https://babeljs.io) _(optional)_
 
 ## Installation
 
@@ -57,9 +57,9 @@ Read how to do it [here](https://stackoverflow.com/a/18500003).
 
 ## Related
 
-* [generator-bunny](https://github.com/luftywiranda13/generator-bunny) － Supports ES2015+ and [Flow](https://flow.org) by default
-* [generator-kcd-oss](https://github.com/kentcdodds/generator-kcd-oss) － Lots of features but many things left untouched
-* [generator-nm](https://github.com/sindresorhus/generator-nm) － A way simpler Yeoman generator
+- [generator-bunny](https://github.com/luftywiranda13/generator-bunny) － Supports ES2015+ and [Flow](https://flow.org) by default
+- [generator-kcd-oss](https://github.com/kentcdodds/generator-kcd-oss) － Lots of features but many things left untouched
+- [generator-nm](https://github.com/sindresorhus/generator-nm) － A way simpler Yeoman generator
 
 ## License
 
