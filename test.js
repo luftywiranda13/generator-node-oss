@@ -173,20 +173,23 @@ describe('prompts', () => {
           assert.jsonFileContent('package.json', {
             scripts: {
               prebuild: 'rimraf dist',
-              build: 'babel src --out-dir dist --copy-files --ignore *.test.js'
+              build:
+                'babel src --out-dir dist --copy-files --ignore **/*.test.js'
             },
             main: 'dist/index.js',
             files: ['dist']
           });
-          assert.fileContent('package.json', 'babel-cli');
+          assert.fileContent('package.json', '@babel/cli');
+          assert.fileContent('package.json', '@babel/core');
+          assert.fileContent('package.json', '@babel/preset-env');
+          assert.fileContent('package.json', 'babel-core');
           assert.fileContent('package.json', 'babel-jest');
           assert.fileContent('package.json', 'babel-plugin-add-module-exports');
-          assert.fileContent('package.json', 'babel-preset-env');
           assert.fileContent('package.json', 'rimraf');
 
           assert.fileContent('.travis.yml', /npm run build/);
 
-          assert.fileContent('src/index.test.js', "import foo from './';");
+          assert.fileContent('src/index.test.js', "import foo from '.';");
           assert.fileContent(
             'src/index.js',
             "export default (input = 'No args passed!')"
