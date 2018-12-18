@@ -147,7 +147,7 @@ describe('prompts', () => {
 
           assert.fileContent(
             '.travis.yml',
-            'after_success: if [[ `npm -v` > 5* ]]; then npx codecov; fi'
+            'after_success: if [[ `node -v` == v10* ]]; then npx codecov; fi'
           );
 
           assert.fileContent(
