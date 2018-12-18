@@ -64,7 +64,8 @@
   },
   "prettier": {
     "bracketSpacing": true,
-    "singleQuote": true
+    "singleQuote": true,
+    "trailingComma": "es5"
   },
   "xo": {
     "envs": [

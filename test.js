@@ -26,7 +26,7 @@ test('default files', () => {
       'license',
       'package.json',
       'readme.md',
-      'test.js'
+      'test.js',
     ]);
 
     assert.noFile([
@@ -39,7 +39,7 @@ test('default files', () => {
       'other/examples.md',
       'other/roadmap.md',
       'src/index.js',
-      'src/index.test.js'
+      'src/index.test.js',
     ]);
   });
 });
@@ -50,12 +50,12 @@ describe('prompts', () => {
       .run(path.join(__dirname, './app'))
       .withPrompts({
         githubUsername: 'foo',
-        projectName: 'bar'
+        projectName: 'bar',
       })
       .then(() => {
         assert.jsonFileContent('package.json', {
           name: 'bar',
-          repository: 'https://github.com/foo/bar'
+          repository: 'https://github.com/foo/bar',
         });
 
         assert.fileContent(
@@ -83,7 +83,7 @@ describe('prompts', () => {
       .withPrompts({ description: 'foo' })
       .then(() => {
         assert.jsonFileContent('package.json', {
-          description: 'foo'
+          description: 'foo',
         });
         assert.fileContent('readme.md', 'foo');
       });
@@ -96,8 +96,8 @@ describe('prompts', () => {
       .then(() => {
         assert.jsonFileContent('package.json', {
           author: {
-            name: 'foo bar'
-          }
+            name: 'foo bar',
+          },
         });
 
         assert.fileContent('license', 'foo bar');
@@ -112,8 +112,8 @@ describe('prompts', () => {
       .then(() => {
         assert.jsonFileContent('package.json', {
           author: {
-            email: 'foo@bar.com'
-          }
+            email: 'foo@bar.com',
+          },
         });
 
         assert.fileContent('license', 'foo@bar.com');
@@ -127,8 +127,8 @@ describe('prompts', () => {
       .then(() => {
         assert.jsonFileContent('package.json', {
           author: {
-            url: 'test.com'
-          }
+            url: 'test.com',
+          },
         });
 
         assert.fileContent('readme.md', 'test.com');
@@ -142,13 +142,13 @@ describe('prompts', () => {
         .withPrompts({
           githubUsername: 'foo',
           projectName: 'bar',
-          extras: ['coverage']
+          extras: ['coverage'],
         })
         .then(() => {
           assert.jsonFileContent('package.json', {
             scripts: {
-              test: 'xo && jest --coverage'
-            }
+              test: 'xo && jest --coverage',
+            },
           });
 
           assert.fileContent(
@@ -168,7 +168,7 @@ describe('prompts', () => {
         .run(path.join(__dirname, './app'))
         .withPrompts({
           projectName: 'foo',
-          extras: ['esnext']
+          extras: ['esnext'],
         })
         .then(() => {
           assert.file(['.babelrc', 'src/index.js', 'src/index.test.js']);
@@ -180,10 +180,10 @@ describe('prompts', () => {
             scripts: {
               prebuild: 'rimraf dist',
               build:
-                'babel src --out-dir dist --copy-files --ignore **/*.test.js'
+                'babel src --out-dir dist --copy-files --ignore **/*.test.js',
             },
             main: 'dist/index.js',
-            files: ['dist']
+            files: ['dist'],
           });
           assert.fileContent('package.json', '@babel/cli');
           assert.fileContent('package.json', '@babel/core');
@@ -210,7 +210,7 @@ describe('prompts', () => {
           githubUsername: 'foo',
           projectName: 'bar',
           email: 'foo@test.com',
-          extras: ['githubTemplates']
+          extras: ['githubTemplates'],
         })
         .then(() => {
           assert.fileContent('contributing.md', 'https://github.com/foo/bar');
