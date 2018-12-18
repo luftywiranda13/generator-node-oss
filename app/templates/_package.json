@@ -18,6 +18,7 @@
     }
   },
   "scripts": {<% if (esnext) { %>
+    "prepublishOnly": "npm run build",
     "prebuild": "rimraf dist",
     "build": "babel src --out-dir dist --copy-files --ignore **/*.test.js",
     "postbuild": "rimraf dist/**/*.test.js",<% } %>

@@ -178,9 +178,11 @@ describe('prompts', () => {
 
           assert.jsonFileContent('package.json', {
             scripts: {
+              prepublishOnly: 'npm run build',
               prebuild: 'rimraf dist',
               build:
                 'babel src --out-dir dist --copy-files --ignore **/*.test.js',
+              postbuild: 'rimraf dist/**/*.test.js',
             },
             main: 'dist/index.js',
             files: ['dist'],
