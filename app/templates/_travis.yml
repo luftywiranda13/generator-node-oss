@@ -8,7 +8,7 @@ node_js:
 script:
   - npm test
   - npm run build<% } %><% if (coverage) { %>
-after_success: if [[ `npm -v` > 4* ]]; then npx codecov; fi<% } %>
+after_success: if [[ `npm -v` > 5* ]]; then npx codecov; fi<% } %>
 branches:
   only:
     - master
