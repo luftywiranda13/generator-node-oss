@@ -1,6 +1,6 @@
 {
   "name": "generator-node-oss",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "Create a Node.js project with ease",
   "license": "MIT",
   "preferGlobal": true,
