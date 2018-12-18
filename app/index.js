@@ -156,10 +156,10 @@ module.exports = class extends Generator {
   end() {
     this.spawnCommandSync('git', ['init', '--quiet']);
 
-    findUp('.yo-rc.json').then(res => {
-      if (res) {
+    findUp('.yo-rc.json')
+      .then(res => {
         this.fs.delete(res);
-      }
-    });
+      })
+      .catch(() => {});
   }
 };
