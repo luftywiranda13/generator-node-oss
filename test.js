@@ -31,7 +31,13 @@ test('default files', () => {
 
     assert.noFile([
       '.babelrc',
+      '.github/issue_template.md',
+      '.github/pull_request_template.md',
       '.yo-rc.json',
+      'contributing.md',
+      'other/code_of_conduct.md',
+      'other/examples.md',
+      'other/roadmap.md',
       'src/index.js',
       'src/index.test.js'
     ]);
