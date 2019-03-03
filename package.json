@@ -32,7 +32,7 @@
     "lodash.camelcase": "^4.3.0",
     "lodash.includes": "^4.3.0",
     "lodash.kebabcase": "^4.1.1",
-    "make-dir": "^1.1.0",
+    "make-dir": "^2.1.0",
     "yeoman-generator": "^3.1.1"
   },
   "devDependencies": {
