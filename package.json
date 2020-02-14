@@ -40,7 +40,7 @@
     "jest": "^23.6.0",
     "lint-staged": "^8.1.0",
     "remove-lockfiles": "^2.0.4",
-    "xo": "^0.23.0",
+    "xo": "^0.26.1",
     "yeoman-assert": "^3.1.0",
     "yeoman-test": "^1.7.0"
   },
